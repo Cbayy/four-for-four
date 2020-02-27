@@ -19,17 +19,18 @@ public class Record {
     Student s;
     
     /*
-    * Date of the score
+    * Date of the score.
     */
     int date;
     
     
-    
-    
+    /**
+     * The type of test the Record is, i.e. beep test.
+     */
     String type;
     
     /*
-    * Score
+    * The value of the score.
     */
     int score;
 

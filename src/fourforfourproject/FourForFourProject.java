@@ -57,6 +57,12 @@ public class FourForFourProject extends Application {
      Stage window;
      Scene main, fit;
     
+     
+     /**
+      * Gets the FXML file, runs stage.
+      * @param stage
+      * @throws Exception 
+      */
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
@@ -130,7 +136,11 @@ public class FourForFourProject extends Application {
 
   
     
-    
+    /**
+     * Adds confirmation of program exit.
+     * @param stage
+     * @throws FileNotFoundException 
+     */
     private void closeProgram(Stage stage) throws FileNotFoundException{
         Boolean ans = ConfirmBox.display("Title", "Are you sure you want to exit?");
         if(ans){

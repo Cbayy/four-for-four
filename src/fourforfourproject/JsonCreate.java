@@ -12,7 +12,7 @@ import javax.json.Json;
 import javax.json.stream.JsonGenerator;
 
 /**
- *
+ * Creates a text file from the student data.
  * @author Owner
  */
 public class JsonCreate {

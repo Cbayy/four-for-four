@@ -24,9 +24,10 @@ import javax.json.stream.JsonParsingException;
 
 
 /**
- *
+ * Inputs a student data file to parse. No longer used, see jsonRead and jsonCreate.
  * @author Owner
  */
+@Deprecated
 public class DataParser {
    
       public List<Record> parse(String fileName) throws DataParserException, ParseException{

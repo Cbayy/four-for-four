@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Singleton class, holds all of the test types in an array list.
  * @author Owner
  */
 public class RecordLists {

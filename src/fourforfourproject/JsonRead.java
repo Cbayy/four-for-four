@@ -15,7 +15,7 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 
 /**
- *
+ * Inputs a text file, with the student data and parses it.
  * @author Owner
  */
 public class JsonRead {
