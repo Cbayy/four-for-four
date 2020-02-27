@@ -1,0 +1,20 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.button{
+    -fx-background-radius: 0, 0; 
+}
+
+.menuButton{
+    -fx-background-color:  #457B9D;
+}
+
+.menuButton:hover{
+    -fx-background-color:  #2C365E;
+}
+
