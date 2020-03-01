@@ -28,7 +28,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-//Should rewrite most of this class, make functions more modular
+//Should rewrite most of this class, make functions more modular, currently complication with scenebuilder
+// as it doesnt like duplicates
 
 /**
  * FXML Controller class
@@ -115,6 +116,27 @@ public class FXMLController implements Initializable {
    
    @FXML
    private ListView taListView;
+   //----------------------------------------------------
+   @FXML
+   private MenuButton mmbName, mmbType, mmbList;
+   
+   @FXML
+   private MenuItem mmiName1, mmiName2, mmiName3, mmiName4;
+   
+   @FXML
+   private MenuItem mmiType1, mmiType2, mmiType3, mmiType4;
+   
+   @FXML
+   private TextField mtfScore;
+
+   @FXML
+   private Label mlInvalid;
+   
+   @FXML
+   private Button mbAdd;
+   
+   @FXML
+   private ListView mListView;
    
    
    
@@ -163,6 +185,11 @@ public class FXMLController implements Initializable {
         tamiType4.setText("Attack: Positioning");
         */
         
+        mmiName1.setText(StudentList.getInstance().students.get(0).getName());
+        mmiName2.setText(StudentList.getInstance().students.get(1).getName());
+        mmiName3.setText(StudentList.getInstance().students.get(2).getName());
+        mmiName4.setText(StudentList.getInstance().students.get(3).getName());
+        
         telInvalid.setVisible(false);
         talInvalid.setVisible(false);
         
@@ -192,7 +219,121 @@ public class FXMLController implements Initializable {
         fReset();
     }
     
+    
+    @FXML
+    public void handlemName(ActionEvent event) {
+        MenuItem mItem = (MenuItem) event.getSource();
+        String side = mItem.getText();
+         
+        if (StudentList.getInstance().students.get(0).getName().equalsIgnoreCase(side)) {
+             Student temp = StudentList.getInstance().returnStudent(0);
+             tempRec.setStudent(temp);
+             mmbName.setText(side);
+        } else if (StudentList.getInstance().students.get(1).getName().equalsIgnoreCase(side)) {
+            tempRec.setStudent(StudentList.getInstance().students.get(1));
+            mmbName.setText(side);
+        } else if (StudentList.getInstance().students.get(2).getName().equalsIgnoreCase(side)) {
+            tempRec.setStudent(StudentList.getInstance().students.get(2));
+            mmbName.setText(side);
+        } else if (StudentList.getInstance().students.get(3).getName().equalsIgnoreCase(side)) {
+            tempRec.setStudent(StudentList.getInstance().students.get(3));
+            mmbName.setText(side);
+        }        
+    }
+  
+    @FXML
+    public void handlemType(ActionEvent event) {
+        MenuItem mItem = (MenuItem) event.getSource();
+        String side = mItem.getText();    
+        if ("Pre-session".equalsIgnoreCase(side)) {
+            tempRec.setType("BeepTest");
+            System.out.println("Beep test added");
+            fmbType.setText(side);
+           
+            //System.out.println(tempRec.getName().getName());
+        } else if ("Agility Test".equalsIgnoreCase(side)) {
+            tempRec.setType("AgilityTest");
+            System.out.println("Agility Test added");
+            fmbType.setText(side);
+        } else if ("Vertical Jump".equalsIgnoreCase(side)) {
+            tempRec.setType("JumpTest");
+            System.out.println("Vertical Jump added");
+            fmbType.setText(side);
+            
+        } else if ("20m Sprint".equalsIgnoreCase(side)) {
+            tempRec.setType("SprintTest");
+            System.out.println("Sprint added");
+            fmbType.setText(side);
+        }        
+    }
+    
+    
+    
+    @FXML
+    public void mAdd(ActionEvent event){
+         
+        if("".equals(ftfScore.getText()) || tempRec.getStudent() == null || tempRec.getType() == null){
+            ConfirmBox.display("Invalid Entry", "Record parameters invalid");
+        }else{
+           tempRec.setScore(Integer.parseInt(ftfScore.getText()));
+            switch(tempRec.getType()){
+                case "BeepTest":
+                    System.out.println("Added bt");
+                    RecordLists.getInstance().BeepTests.add(tempRec);
+                break;
+                case "AgilityTest":
+                    System.out.println("Added at");
+                    RecordLists.getInstance().AgilityTests.add(tempRec);
+                break; 
+                case "JumpTest":
+                    System.out.println("Added jt");
+                    RecordLists.getInstance().JumpTests.add(tempRec);
+                break;
+                case "SprintTest":
+                    System.out.println("Added st");
+                    RecordLists.getInstance().SprintTests.add(tempRec);
+                break;
+            }
+            //fReset();
 
+        }
+    }
+    
+    @FXML
+    public void mList(ActionEvent event){
+        MenuItem mItem = (MenuItem) event.getSource();
+        String side = mItem.getText();
+           
+        fListView.getItems().clear();
+        if ("Beep Test".equalsIgnoreCase(side)) {
+                       
+            for(int i = 0; i < RecordLists.getInstance().BeepTests.size(); i++){
+                fListView.getItems().add(RecordLists.getInstance().BeepTests.get(i));
+                
+            }
+
+           
+            fmbList.setText("Beep Test");
+            
+            
+        } else if("Agility Test".equalsIgnoreCase(side)){
+            for(int i = 0; i < RecordLists.getInstance().AgilityTests.size(); i++){
+                fListView.getItems().add(RecordLists.getInstance().AgilityTests.get(i));
+            }
+            fmbList.setText("Agility Test");
+        } else if("20m Sprint".equalsIgnoreCase(side)){
+            for(int i = 0; i < RecordLists.getInstance().SprintTests.size(); i++){
+                fListView.getItems().add(RecordLists.getInstance().SprintTests.get(i));
+            }
+            fmbList.setText("20m Sprint");
+        } else if("Vertical Jump".equalsIgnoreCase(side)){
+            for(int i = 0; i < RecordLists.getInstance().JumpTests.size(); i++){
+                fListView.getItems().add(RecordLists.getInstance().JumpTests.get(i));
+            }
+            fmbList.setText("Vertical Jump");
+        }
+    }
+    
     @FXML
     public void handletaName(ActionEvent event) {
         MenuItem mItem = (MenuItem) event.getSource();
