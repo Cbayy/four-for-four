@@ -142,6 +142,7 @@ public class FXMLController implements Initializable {
    
    Record tempRec = new Record();
    
+   int selected = 0;
     
     /**
      * Initializes the controller class.
@@ -208,23 +209,57 @@ public class FXMLController implements Initializable {
     public void switchPanel(ActionEvent event){
         if(event.getSource() == btnFit){
             paneFit.toFront();
+            selected = 1;
         } else if(event.getSource() == btnTech){
             paneTech.toFront();
             btnFit.setStyle("menuButton");
+            selected = 2;
         } else if(event.getSource() == btnTac){
             paneTac.toFront();
+            selected = 3;
         } else if(event.getSource() == btnMot){
             paneMot.toFront();
+            selected = 4;
         }
         fReset();
     }
     
     
+    public void handleName2(String s, MenuButton m){
+         System.out.println(s);
+        if (StudentList.getInstance().students.get(0).getName().equalsIgnoreCase(s)) {
+             Student temp = StudentList.getInstance().returnStudent(0);
+             tempRec.setStudent(temp);
+             m.setText(s);
+             System.out.println("EEEEE");
+        } else if (StudentList.getInstance().students.get(1).getName().equalsIgnoreCase(s)) {
+            tempRec.setStudent(StudentList.getInstance().students.get(1));
+            m.setText(s);
+        } else if (StudentList.getInstance().students.get(2).getName().equalsIgnoreCase(s)) {
+            tempRec.setStudent(StudentList.getInstance().students.get(2));
+            m.setText(s);
+        } else if (StudentList.getInstance().students.get(3).getName().equalsIgnoreCase(s)) {
+            tempRec.setStudent(StudentList.getInstance().students.get(3));
+            m.setText(s);
+        }     
+    }
+    
     @FXML
-    public void handlemName(ActionEvent event) {
+    public void handleName(ActionEvent event) {
         MenuItem mItem = (MenuItem) event.getSource();
         String side = mItem.getText();
-         
+        System.out.println(side);
+        switch(selected){
+            case 1: 
+                handleName2(side, fmbName);
+            case 2:
+                handleName2(side, tembName);
+            case 3:
+                handleName2(side, tambName);
+            case 4:
+                handleName2(side, mmbName);
+        }
+        /*
         if (StudentList.getInstance().students.get(0).getName().equalsIgnoreCase(side)) {
              Student temp = StudentList.getInstance().returnStudent(0);
              tempRec.setStudent(temp);
@@ -239,6 +274,7 @@ public class FXMLController implements Initializable {
             tempRec.setStudent(StudentList.getInstance().students.get(3));
             mmbName.setText(side);
         }        
+        */
     }
   
     @FXML
@@ -304,33 +340,27 @@ public class FXMLController implements Initializable {
         MenuItem mItem = (MenuItem) event.getSource();
         String side = mItem.getText();
            
-        fListView.getItems().clear();
-        if ("Beep Test".equalsIgnoreCase(side)) {
-                       
-            for(int i = 0; i < RecordLists.getInstance().BeepTests.size(); i++){
-                fListView.getItems().add(RecordLists.getInstance().BeepTests.get(i));
-                
+        mListView.getItems().clear();
+        if ("Pre-session".equalsIgnoreCase(side)) {
+            for(int i = 0; i < RecordLists.getInstance().PreS.size(); i++){
+                mListView.getItems().add(RecordLists.getInstance().PreS.get(i));
             }
-
-           
-            fmbList.setText("Beep Test");
-            
-            
-        } else if("Agility Test".equalsIgnoreCase(side)){
-            for(int i = 0; i < RecordLists.getInstance().AgilityTests.size(); i++){
-                fListView.getItems().add(RecordLists.getInstance().AgilityTests.get(i));
+            mmbList.setText("Pre-session");
+        } else if("During Session".equalsIgnoreCase(side)){
+            for(int i = 0; i < RecordLists.getInstance().DS.size(); i++){
+                mListView.getItems().add(RecordLists.getInstance().DS.get(i));
             }
-            fmbList.setText("Agility Test");
-        } else if("20m Sprint".equalsIgnoreCase(side)){
-            for(int i = 0; i < RecordLists.getInstance().SprintTests.size(); i++){
-                fListView.getItems().add(RecordLists.getInstance().SprintTests.get(i));
+            mmbList.setText("During Session");
+        } else if("Post-session".equalsIgnoreCase(side)){
+            for(int i = 0; i < RecordLists.getInstance().PostS.size(); i++){
+                mListView.getItems().add(RecordLists.getInstance().PostS.get(i));
             }
-            fmbList.setText("20m Sprint");
-        } else if("Vertical Jump".equalsIgnoreCase(side)){
-            for(int i = 0; i < RecordLists.getInstance().JumpTests.size(); i++){
-                fListView.getItems().add(RecordLists.getInstance().JumpTests.get(i));
+            mmbList.setText("Post-session");
+        } else if("Long Term".equalsIgnoreCase(side)){
+            for(int i = 0; i < RecordLists.getInstance().LT.size(); i++){
+                mListView.getItems().add(RecordLists.getInstance().LT.get(i));
             }
-            fmbList.setText("Vertical Jump");
+            mmbList.setText("Long term");
         }
     }
     

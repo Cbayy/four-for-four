@@ -229,12 +229,12 @@
                      </font>
                   </MenuButton>
                   <TextField fx:id="ftfScore1" layoutX="14.0" layoutY="185.0" />
-                  <MenuButton fx:id="mmbName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handlemName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
+                  <MenuButton fx:id="mmbName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
                      <items>
-                        <MenuItem fx:id="mmiName1" mnemonicParsing="false" onAction="#handlefName" text="Student 1" />
-                        <MenuItem fx:id="mmiName2" mnemonicParsing="false" onAction="#handlefName" text="Student 2" />
-                        <MenuItem fx:id="mmiName3" mnemonicParsing="false" onAction="#handlefName" text="Student 3" />
-                        <MenuItem fx:id="mmiName4" mnemonicParsing="false" onAction="#handlefName" text="Student 4" />
+                        <MenuItem fx:id="mmiName1" mnemonicParsing="false" onAction="#handleName" text="Student 1" />
+                        <MenuItem fx:id="mmiName2" mnemonicParsing="false" onAction="#handleName" text="Student 2" />
+                        <MenuItem fx:id="mmiName3" mnemonicParsing="false" onAction="#handleName" text="Student 3" />
+                        <MenuItem fx:id="mmiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
                      </items>
                   </MenuButton>
                   <MenuButton fx:id="mmbType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#handlemType" style="-fx-background-color: #FFFFFF;" text="Test Type">
