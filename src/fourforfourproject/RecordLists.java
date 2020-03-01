@@ -36,6 +36,10 @@ public class RecordLists {
     ArrayList<Record> A1v1;
     ArrayList<Record> Apos;
     
+    ArrayList<Record> PreS;
+    ArrayList<Record> DS;
+    ArrayList<Record> PostS;
+    ArrayList<Record> LT;
     
     
     private RecordLists(){
