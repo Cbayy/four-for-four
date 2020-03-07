@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fourforfourproject.FXMLController">
    <children>
@@ -258,6 +259,24 @@
                   <Button fx:id="mbtnAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#mAdd" style="-fx-background-color: #FFFFFF;" text="Add" />
                   <ListView fx:id="mListView" layoutX="326.0" layoutY="85.0" prefHeight="491.0" prefWidth="266.0" />
                </children></Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="600.0" prefWidth="801.0">
+         <children>
+            <Pane prefHeight="600.0" prefWidth="801.0" style="-fx-background-color: #1D3557;">
+               <children>
+                  <TextField layoutX="326.0" layoutY="191.0" />
+                  <Text fill="WHITE" layoutX="316.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Students">
+                     <font>
+                        <Font name="Arial" size="28.0" />
+                     </font>
+                  </Text>
+                  <TextField layoutX="326.0" layoutY="283.0" />
+                  <TextField layoutX="326.0" layoutY="236.0" />
+                  <TextField layoutX="326.0" layoutY="147.0" />
+                  <Button layoutX="375.0" layoutY="328.0" mnemonicParsing="false" text="Finish" />
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
    </children>
