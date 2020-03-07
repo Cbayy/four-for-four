@@ -58,6 +58,11 @@ public class RecordLists {
         this.A1v1 = new ArrayList<>();
         this.Apos = new ArrayList<>();
         
+        this.PreS = new ArrayList<>();
+        this.DS = new ArrayList<>();
+        this.PostS = new ArrayList<>();
+        this.LT = new ArrayList<>();
+        
     }
     
     public static RecordLists getInstance(){
