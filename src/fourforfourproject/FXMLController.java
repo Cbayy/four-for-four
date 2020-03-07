@@ -245,10 +245,10 @@ public class FXMLController implements Initializable {
     }
     
     @FXML
-    public void handleName(ActionEvent event) {
+    public void handlemName(ActionEvent event) {
         MenuItem mItem = (MenuItem) event.getSource();
         String side = mItem.getText();
-        System.out.println(side);
+        /*
         switch(selected){
             case 1: 
                 handleName2(side, fmbName);
@@ -259,7 +259,7 @@ public class FXMLController implements Initializable {
             case 4:
                 handleName2(side, mmbName);
         }
-        /*
+        */
         if (StudentList.getInstance().students.get(0).getName().equalsIgnoreCase(side)) {
              Student temp = StudentList.getInstance().returnStudent(0);
              tempRec.setStudent(temp);
@@ -274,7 +274,6 @@ public class FXMLController implements Initializable {
             tempRec.setStudent(StudentList.getInstance().students.get(3));
             mmbName.setText(side);
         }        
-        */
     }
   
     @FXML
@@ -282,24 +281,17 @@ public class FXMLController implements Initializable {
         MenuItem mItem = (MenuItem) event.getSource();
         String side = mItem.getText();    
         if ("Pre-session".equalsIgnoreCase(side)) {
-            tempRec.setType("BeepTest");
-            System.out.println("Beep test added");
-            fmbType.setText(side);
-           
-            //System.out.println(tempRec.getName().getName());
-        } else if ("Agility Test".equalsIgnoreCase(side)) {
-            tempRec.setType("AgilityTest");
-            System.out.println("Agility Test added");
-            fmbType.setText(side);
-        } else if ("Vertical Jump".equalsIgnoreCase(side)) {
-            tempRec.setType("JumpTest");
-            System.out.println("Vertical Jump added");
-            fmbType.setText(side);
-            
-        } else if ("20m Sprint".equalsIgnoreCase(side)) {
-            tempRec.setType("SprintTest");
-            System.out.println("Sprint added");
-            fmbType.setText(side);
+            tempRec.setType("Pre-session");
+            mmbType.setText(side);
+        } else if ("During Session".equalsIgnoreCase(side)) {
+            tempRec.setType("During Session");
+            mmbType.setText(side);
+        } else if ("Post-session".equalsIgnoreCase(side)) {
+            tempRec.setType("Post-session");
+            mmbType.setText(side);
+        } else if ("Long Term".equalsIgnoreCase(side)) {
+            tempRec.setType("Long Term");
+            mmbType.setText(side);
         }        
     }
     
@@ -308,26 +300,22 @@ public class FXMLController implements Initializable {
     @FXML
     public void mAdd(ActionEvent event){
          
-        if("".equals(ftfScore.getText()) || tempRec.getStudent() == null || tempRec.getType() == null){
+        if("".equals(mtfScore.getText()) || tempRec.getStudent() == null || tempRec.getType() == null){
             ConfirmBox.display("Invalid Entry", "Record parameters invalid");
         }else{
-           tempRec.setScore(Integer.parseInt(ftfScore.getText()));
+           tempRec.setScore(Integer.parseInt(mtfScore.getText()));
             switch(tempRec.getType()){
-                case "BeepTest":
-                    System.out.println("Added bt");
-                    RecordLists.getInstance().BeepTests.add(tempRec);
+                case "Pre-session":
+                    RecordLists.getInstance().PreS.add(tempRec);
                 break;
-                case "AgilityTest":
-                    System.out.println("Added at");
-                    RecordLists.getInstance().AgilityTests.add(tempRec);
+                case "During Session":
+                    RecordLists.getInstance().DS.add(tempRec);
                 break; 
-                case "JumpTest":
-                    System.out.println("Added jt");
-                    RecordLists.getInstance().JumpTests.add(tempRec);
+                case "Post-session":
+                    RecordLists.getInstance().PostS.add(tempRec);
                 break;
-                case "SprintTest":
-                    System.out.println("Added st");
-                    RecordLists.getInstance().SprintTests.add(tempRec);
+                case "Long Term":
+                    RecordLists.getInstance().LT.add(tempRec);
                 break;
             }
             //fReset();

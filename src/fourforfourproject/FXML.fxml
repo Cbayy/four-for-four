@@ -217,32 +217,32 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <MenuButton fx:id="fmbList1" cache="true" layoutX="453.0" layoutY="39.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="140.0" style="-fx-background-color: #FFFFFF;" styleClass="menuButton" stylesheets="@fxml1.css" text="Test Type">
+                  <MenuButton fx:id="mmbList" cache="true" layoutX="453.0" layoutY="39.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="140.0" style="-fx-background-color: #FFFFFF;" styleClass="menuButton" stylesheets="@fxml1.css" text="Test Type">
                      <items>
-                        <MenuItem fx:id="fmiType12" mnemonicParsing="false" onAction="#fList" text="Pre-session" />
-                        <MenuItem fx:id="fmiType22" mnemonicParsing="false" onAction="#fList" text="During Session" />
-                        <MenuItem fx:id="fmiType32" mnemonicParsing="false" onAction="#fList" text="Post-session" />
-                        <MenuItem fx:id="fmiType42" mnemonicParsing="false" onAction="#fList" text="Long term" />
+                        <MenuItem fx:id="fmiType12" mnemonicParsing="false" onAction="#mList" text="Pre-session" />
+                        <MenuItem fx:id="fmiType22" mnemonicParsing="false" onAction="#mList" text="During Session" />
+                        <MenuItem fx:id="fmiType32" mnemonicParsing="false" onAction="#mList" text="Post-session" />
+                        <MenuItem fx:id="fmiType42" mnemonicParsing="false" onAction="#mList" text="Long term" />
                      </items>
                      <font>
                         <Font size="16.0" />
                      </font>
                   </MenuButton>
-                  <TextField fx:id="ftfScore1" layoutX="14.0" layoutY="185.0" />
-                  <MenuButton fx:id="mmbName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
+                  <TextField fx:id="mtfScore" layoutX="14.0" layoutY="185.0" />
+                  <MenuButton fx:id="mmbName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handlemName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
                      <items>
-                        <MenuItem fx:id="mmiName1" mnemonicParsing="false" onAction="#handleName" text="Student 1" />
-                        <MenuItem fx:id="mmiName2" mnemonicParsing="false" onAction="#handleName" text="Student 2" />
-                        <MenuItem fx:id="mmiName3" mnemonicParsing="false" onAction="#handleName" text="Student 3" />
-                        <MenuItem fx:id="mmiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
+                        <MenuItem fx:id="mmiName1" mnemonicParsing="false" onAction="#handlemName" text="Student 1" />
+                        <MenuItem fx:id="mmiName2" mnemonicParsing="false" onAction="#handlemName" text="Student 2" />
+                        <MenuItem fx:id="mmiName3" mnemonicParsing="false" onAction="#handlemName" text="Student 3" />
+                        <MenuItem fx:id="mmiName4" mnemonicParsing="false" onAction="#handlemName" text="Student 4" />
                      </items>
                   </MenuButton>
                   <MenuButton fx:id="mmbType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#handlemType" style="-fx-background-color: #FFFFFF;" text="Test Type">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#handlefType" text="Pre-session" />
-                        <MenuItem mnemonicParsing="false" onAction="#handlefType" text="During Session" />
-                        <MenuItem mnemonicParsing="false" onAction="#handlefType" text="Post-session" />
-                        <MenuItem mnemonicParsing="false" onAction="#handlefType" text="Long Term" />
+                        <MenuItem mnemonicParsing="false" onAction="#handlemType" text="Pre-session" />
+                        <MenuItem mnemonicParsing="false" onAction="#handlemType" text="During Session" />
+                        <MenuItem mnemonicParsing="false" onAction="#handlemType" text="Post-session" />
+                        <MenuItem mnemonicParsing="false" onAction="#handlemType" text="Long Term" />
                      </items>
                   </MenuButton>
                   <Label layoutX="14.0" layoutY="155.0" prefHeight="17.0" prefWidth="87.0" text="Score:" textFill="WHITE">
