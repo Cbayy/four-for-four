@@ -26,6 +26,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 //Should rewrite most of this class, make functions more modular, currently complication with scenebuilder
@@ -143,29 +144,28 @@ public class FXMLController implements Initializable {
    Record tempRec = new Record();
    
    int selected = 0;
-    
+   
+   @FXML
+   private AnchorPane paneStats, paneNames;
+   
+   //Student input pane   
+   @FXML
+   private TextField student1, student2, student3, student4;
+   
+   @FXML
+   private Button btnStudent;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        fmiName1.setText(StudentList.getInstance().students.get(0).getName());
-        fmiName2.setText(StudentList.getInstance().students.get(1).getName());
-        fmiName3.setText(StudentList.getInstance().students.get(2).getName());
-        fmiName4.setText(StudentList.getInstance().students.get(3).getName());
-        
+    
         fmiType1.setText("Beep Test");
         fmiType2.setText("Agility Test");
         fmiType3.setText("Vertical Jump");
         fmiType4.setText("20m Sprint");
         fReset();
-       
-        temiName1.setText(StudentList.getInstance().students.get(0).getName());
-        temiName2.setText(StudentList.getInstance().students.get(1).getName());
-        temiName3.setText(StudentList.getInstance().students.get(2).getName());
-        temiName4.setText(StudentList.getInstance().students.get(3).getName());
-        
+
         //tembName.getItems().add(temiName1);
        
         temiType1.setText("Free Throws");
@@ -173,12 +173,7 @@ public class FXMLController implements Initializable {
         temiType3.setText("Three-pointers");
         temiType4.setText("Passing");
         
-        
-        tamiName1.setText(StudentList.getInstance().students.get(0).getName());
-        tamiName2.setText(StudentList.getInstance().students.get(1).getName());
-        tamiName3.setText(StudentList.getInstance().students.get(2).getName());
-        tamiName4.setText(StudentList.getInstance().students.get(3).getName());
-        
+
         /*
         tamiType1.setText("Defensive: 1v1");
         tamiType2.setText("Defensive: Positioning");
@@ -186,11 +181,7 @@ public class FXMLController implements Initializable {
         tamiType4.setText("Attack: Positioning");
         */
         
-        mmiName1.setText(StudentList.getInstance().students.get(0).getName());
-        mmiName2.setText(StudentList.getInstance().students.get(1).getName());
-        mmiName3.setText(StudentList.getInstance().students.get(2).getName());
-        mmiName4.setText(StudentList.getInstance().students.get(3).getName());
-        
+
         telInvalid.setVisible(false);
         talInvalid.setVisible(false);
         
@@ -205,6 +196,41 @@ public class FXMLController implements Initializable {
   
     
     
+    @FXML
+    public void enterStudents(ActionEvent event){
+        StudentList.getInstance().students.get(0).setName(student1.getText());
+        StudentList.getInstance().students.get(1).setName(student2.getText());
+        StudentList.getInstance().students.get(2).setName(student3.getText());
+        StudentList.getInstance().students.get(3).setName(student4.getText());
+        
+        fmiName1.setText(StudentList.getInstance().students.get(0).getName());
+        fmiName2.setText(StudentList.getInstance().students.get(1).getName());
+        fmiName3.setText(StudentList.getInstance().students.get(2).getName());
+        fmiName4.setText(StudentList.getInstance().students.get(3).getName());
+
+       
+        temiName1.setText(StudentList.getInstance().students.get(0).getName());
+        temiName2.setText(StudentList.getInstance().students.get(1).getName());
+        temiName3.setText(StudentList.getInstance().students.get(2).getName());
+        temiName4.setText(StudentList.getInstance().students.get(3).getName());
+                
+        
+        tamiName1.setText(StudentList.getInstance().students.get(0).getName());
+        tamiName2.setText(StudentList.getInstance().students.get(1).getName());
+        tamiName3.setText(StudentList.getInstance().students.get(2).getName());
+        tamiName4.setText(StudentList.getInstance().students.get(3).getName());
+                
+        mmiName1.setText(StudentList.getInstance().students.get(0).getName());
+        mmiName2.setText(StudentList.getInstance().students.get(1).getName());
+        mmiName3.setText(StudentList.getInstance().students.get(2).getName());
+        mmiName4.setText(StudentList.getInstance().students.get(3).getName());
+        
+        
+        paneNames.toBack();
+    }
+    
+    
+
     @FXML
     public void switchPanel(ActionEvent event){
         if(event.getSource() == btnFit){
