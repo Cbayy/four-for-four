@@ -143,7 +143,7 @@ public class FXMLController implements Initializable {
    
    Record tempRec = new Record();
    
-   int selected = 0;
+   int selected =1;
    
    @FXML
    private AnchorPane paneStats, paneNames;
@@ -160,6 +160,8 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
+        paneNames.toFront();
+        
         fmiType1.setText("Beep Test");
         fmiType2.setText("Agility Test");
         fmiType3.setText("Vertical Jump");
@@ -252,12 +254,10 @@ public class FXMLController implements Initializable {
     
     
     public void handleName2(String s, MenuButton m){
-         System.out.println(s);
         if (StudentList.getInstance().students.get(0).getName().equalsIgnoreCase(s)) {
              Student temp = StudentList.getInstance().returnStudent(0);
              tempRec.setStudent(temp);
              m.setText(s);
-             System.out.println("EEEEE");
         } else if (StudentList.getInstance().students.get(1).getName().equalsIgnoreCase(s)) {
             tempRec.setStudent(StudentList.getInstance().students.get(1));
             m.setText(s);
@@ -271,10 +271,13 @@ public class FXMLController implements Initializable {
     }
     
     @FXML
-    public void handlemName(ActionEvent event) {
+    public void handleName(ActionEvent event) {
+        System.out.println("Start of handelName: " + RecordLists.getInstance().BeepTests.toString()); 
         MenuItem mItem = (MenuItem) event.getSource();
         String side = mItem.getText();
-        /*
+        //handleName2(side, mmbName);
+        System.out.println("SEL: " + selected);
+        
         switch(selected){
             case 1: 
                 handleName2(side, fmbName);
@@ -285,7 +288,8 @@ public class FXMLController implements Initializable {
             case 4:
                 handleName2(side, mmbName);
         }
-        */
+        System.out.println("end of fName: " + RecordLists.getInstance().BeepTests.toString()); 
+        /*
         if (StudentList.getInstance().students.get(0).getName().equalsIgnoreCase(side)) {
              Student temp = StudentList.getInstance().returnStudent(0);
              tempRec.setStudent(temp);
@@ -299,7 +303,8 @@ public class FXMLController implements Initializable {
         } else if (StudentList.getInstance().students.get(3).getName().equalsIgnoreCase(side)) {
             tempRec.setStudent(StudentList.getInstance().students.get(3));
             mmbName.setText(side);
-        }        
+        } 
+        */
     }
   
     @FXML
@@ -325,7 +330,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     public void mAdd(ActionEvent event){
-         
+         System.out.println("Start of mAdd: " + RecordLists.getInstance().PreS.toString());
         if("".equals(mtfScore.getText()) || tempRec.getStudent() == null || tempRec.getType() == null){
             ConfirmBox.display("Invalid Entry", "Record parameters invalid");
         }else{
@@ -353,7 +358,7 @@ public class FXMLController implements Initializable {
     public void mList(ActionEvent event){
         MenuItem mItem = (MenuItem) event.getSource();
         String side = mItem.getText();
-           
+        System.out.println(RecordLists.getInstance().PreS.toString());
         mListView.getItems().clear();
         if ("Pre-session".equalsIgnoreCase(side)) {
             for(int i = 0; i < RecordLists.getInstance().PreS.size(); i++){
@@ -483,7 +488,7 @@ public class FXMLController implements Initializable {
         }
         
     }
-    
+    /*
     @FXML
     public void handleteName(ActionEvent event) {
         MenuItem mItem = (MenuItem) event.getSource();
@@ -505,7 +510,7 @@ public class FXMLController implements Initializable {
             tembName.setText(side);
         }        
     }
-     
+     */
   
     @FXML
     public void handleteType(ActionEvent event) {
@@ -597,7 +602,7 @@ public class FXMLController implements Initializable {
         
     }
     
-    
+    /*
     @FXML
     public void handlefName(ActionEvent event) {
         MenuItem mItem = (MenuItem) event.getSource();
@@ -618,9 +623,10 @@ public class FXMLController implements Initializable {
             fmbName.setText(side);
         }        
     }
-  
+    */
     @FXML
     public void handlefType(ActionEvent event) {
+        System.out.println("Start of fType: " + RecordLists.getInstance().BeepTests.toString()); 
         MenuItem mItem = (MenuItem) event.getSource();
         String side = mItem.getText();    
         if ("Beep Test".equalsIgnoreCase(side)) {
@@ -645,19 +651,34 @@ public class FXMLController implements Initializable {
         }        
     }
     
-    
+    public Student detStu(String name){
+        if(name.equals(StudentList.getInstance().students.get(0).getName())){
+            return StudentList.getInstance().students.get(0);
+        } else if(name.equals(StudentList.getInstance().students.get(1).getName())){
+            return StudentList.getInstance().students.get(1);
+        }else if(name.equals(StudentList.getInstance().students.get(2).getName())){
+            return StudentList.getInstance().students.get(2);
+        }else if(name.equals(StudentList.getInstance().students.get(3).getName())){
+            return StudentList.getInstance().students.get(3);
+        }
+        return null;
+    }
     
     @FXML
     public void fAdd(ActionEvent event){
-         
-        if("".equals(ftfScore.getText()) || tempRec.getStudent() == null || tempRec.getType() == null){
+        System.out.println("Start of fAdd: " + RecordLists.getInstance().BeepTests.toString()); 
+        
+        Record tempoRec = new Record();
+        
+        if("".equals(ftfScore.getText()) || /*tempRec.getStudent() == null*/ fmbName.getText() == null || fmbType.getText() == null){
             ConfirmBox.display("Invalid Entry", "Record parameters invalid");
         }else{
-           tempRec.setScore(Integer.parseInt(ftfScore.getText()));
+           tempoRec.setStudent(detStu(fmbName.getText()));
+           tempoRec.setScore(Integer.parseInt(ftfScore.getText()));
             switch(tempRec.getType()){
                 case "BeepTest":
                     System.out.println("Added bt");
-                    RecordLists.getInstance().BeepTests.add(tempRec);
+                    RecordLists.getInstance().BeepTests.add(tempoRec);
                 break;
                 case "AgilityTest":
                     System.out.println("Added at");
@@ -683,6 +704,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     public void fList(ActionEvent event){
+        //System.out.println("Start of fList: " + RecordLists.getInstance().BeepTests.toString()); 
         MenuItem mItem = (MenuItem) event.getSource();
         String side = mItem.getText();
            

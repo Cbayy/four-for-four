@@ -17,40 +17,22 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fourforfourproject.FXMLController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="190.0" style="-fx-background-color: #1D3557;">
+      <AnchorPane fx:id="paneNames" prefHeight="600.0" prefWidth="801.0">
          <children>
-            <Button id="button" fx:id="btnFit" layoutY="72.0" mnemonicParsing="false" onAction="#switchPanel" prefHeight="45.0" prefWidth="190.0" styleClass="menuButton" stylesheets="@fxml1.css" text="Fitness" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Roboto Medium" size="26.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button id="button" fx:id="btnTech" layoutY="136.0" mnemonicParsing="false" onAction="#switchPanel" prefHeight="45.0" prefWidth="190.0" styleClass="menuButton" stylesheets="@fxml1.css" text="Technical" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Roboto Medium" size="26.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button id="button" fx:id="btnTac" layoutY="197.0" mnemonicParsing="false" onAction="#switchPanel" prefHeight="45.0" prefWidth="190.0" styleClass="menuButton" stylesheets="@fxml1.css" text="Tactical" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Roboto Medium" size="26.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button id="button" fx:id="btnMot" layoutY="258.0" mnemonicParsing="false" onAction="#switchPanel" prefHeight="45.0" prefWidth="190.0" styleClass="menuButton" stylesheets="@fxml1.css" text="Motivation" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Roboto Medium" size="26.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+            <Pane fx:id="paneStudent" prefHeight="600.0" prefWidth="801.0" style="-fx-background-color: #1D3557;">
+               <children>
+                  <TextField fx:id="student2" layoutX="326.0" layoutY="191.0" />
+                  <Text fill="WHITE" layoutX="316.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Students">
+                     <font>
+                        <Font name="Arial" size="28.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="student4" layoutX="326.0" layoutY="283.0" />
+                  <TextField fx:id="student3" layoutX="326.0" layoutY="236.0" />
+                  <TextField fx:id="student1" layoutX="326.0" layoutY="147.0" />
+                  <Button fx:id="btnStudent" layoutX="375.0" layoutY="328.0" mnemonicParsing="false" onAction="#enterStudents" text="Finish" />
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="paneStats" layoutX="194.0" prefHeight="600.0" prefWidth="607.0" style="-fx-background-color: #FFFF;">
@@ -73,12 +55,12 @@
                         <Font size="16.0" />
                      </font>
                   </MenuButton>
-                  <MenuButton fx:id="tambName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handletaName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
+                  <MenuButton fx:id="tambName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
                      <items>
                         <MenuItem fx:id="tamiName1" mnemonicParsing="false" onAction="#handletaName" text="Student 1" />
-                        <MenuItem fx:id="tamiName2" mnemonicParsing="false" onAction="#handleteName" text="Student 2" />
-                        <MenuItem fx:id="tamiName3" mnemonicParsing="false" onAction="#handleteName" text="Student 3" />
-                        <MenuItem fx:id="tamiName4" mnemonicParsing="false" onAction="#handleteName" text="Student 4" />
+                        <MenuItem fx:id="tamiName2" mnemonicParsing="false" onAction="#handletaName" text="Student 2" />
+                        <MenuItem fx:id="tamiName3" mnemonicParsing="false" onAction="#handleName" text="Student 3" />
+                        <MenuItem fx:id="tamiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
                      </items>
                   </MenuButton>
                   <MenuButton fx:id="tambType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="Test Type">
@@ -122,12 +104,12 @@
                         <Font size="16.0" />
                      </font>
                   </MenuButton>
-                  <MenuButton fx:id="tembName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
+                  <MenuButton fx:id="tembName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
                      <items>
-                        <MenuItem fx:id="temiName1" mnemonicParsing="false" onAction="#handleteName" text="Student 1" />
-                        <MenuItem fx:id="temiName2" mnemonicParsing="false" onAction="#handleteName" text="Student 2" />
-                        <MenuItem fx:id="temiName3" mnemonicParsing="false" onAction="#handleteName" text="Student 3" />
-                        <MenuItem fx:id="temiName4" mnemonicParsing="false" onAction="#handleteName" text="Student 4" />
+                        <MenuItem fx:id="temiName1" mnemonicParsing="false" onAction="#handleName" text="Student 1" />
+                        <MenuItem fx:id="temiName2" mnemonicParsing="false" onAction="#handleName" text="Student 2" />
+                        <MenuItem fx:id="temiName3" mnemonicParsing="false" onAction="#handleName" text="Student 3" />
+                        <MenuItem fx:id="temiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
                      </items>
                   </MenuButton>
                   <MenuButton fx:id="tembType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#handlefType" style="-fx-background-color: #FFFFFF;" text="Test Type">
@@ -173,12 +155,12 @@
                      </font>
                   </MenuButton>
                   <TextField fx:id="ftfScore" layoutX="14.0" layoutY="185.0" />
-                  <MenuButton fx:id="fmbName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handlefName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
+                  <MenuButton fx:id="fmbName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
                     <items>
-                      <MenuItem fx:id="fmiName1" mnemonicParsing="false" onAction="#handlefName" text="Student 1" />
-                      <MenuItem fx:id="fmiName2" mnemonicParsing="false" onAction="#handlefName" text="Student 2" />
-                        <MenuItem fx:id="fmiName3" mnemonicParsing="false" onAction="#handlefName" text="Student 3" />
-                        <MenuItem fx:id="fmiName4" mnemonicParsing="false" onAction="#handlefName" text="Student 4" />
+                      <MenuItem fx:id="fmiName1" mnemonicParsing="false" onAction="#handleName" text="Student 1" />
+                      <MenuItem fx:id="fmiName2" mnemonicParsing="false" onAction="#handleName" text="Student 2" />
+                        <MenuItem fx:id="fmiName3" mnemonicParsing="false" onAction="#handleName" text="Student 3" />
+                        <MenuItem fx:id="fmiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
                     </items>
                   </MenuButton>
                   <MenuButton fx:id="fmbType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#handlefType" style="-fx-background-color: #FFFFFF;" text="Test Type">
@@ -230,12 +212,12 @@
                      </font>
                   </MenuButton>
                   <TextField fx:id="mtfScore" layoutX="14.0" layoutY="185.0" />
-                  <MenuButton fx:id="mmbName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handlemName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
+                  <MenuButton fx:id="mmbName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
                      <items>
-                        <MenuItem fx:id="mmiName1" mnemonicParsing="false" onAction="#handlemName" text="Student 1" />
-                        <MenuItem fx:id="mmiName2" mnemonicParsing="false" onAction="#handlemName" text="Student 2" />
-                        <MenuItem fx:id="mmiName3" mnemonicParsing="false" onAction="#handlemName" text="Student 3" />
-                        <MenuItem fx:id="mmiName4" mnemonicParsing="false" onAction="#handlemName" text="Student 4" />
+                        <MenuItem fx:id="mmiName1" mnemonicParsing="false" onAction="#handleName" text="Student 1" />
+                        <MenuItem fx:id="mmiName2" mnemonicParsing="false" onAction="#handleName" text="Student 2" />
+                        <MenuItem fx:id="mmiName3" mnemonicParsing="false" onAction="#handleName" text="Student 3" />
+                        <MenuItem fx:id="mmiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
                      </items>
                   </MenuButton>
                   <MenuButton fx:id="mmbType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#handlemType" style="-fx-background-color: #FFFFFF;" text="Test Type">
@@ -261,22 +243,40 @@
                </children></Pane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="paneNames" prefHeight="600.0" prefWidth="801.0">
+      <AnchorPane prefHeight="600.0" prefWidth="190.0" style="-fx-background-color: #1D3557;">
          <children>
-            <Pane fx:id="paneStudent" prefHeight="600.0" prefWidth="801.0" style="-fx-background-color: #1D3557;">
-               <children>
-                  <TextField fx:id="student2" layoutX="326.0" layoutY="191.0" />
-                  <Text fill="WHITE" layoutX="316.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Students">
-                     <font>
-                        <Font name="Arial" size="28.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="student4" layoutX="326.0" layoutY="283.0" />
-                  <TextField fx:id="student3" layoutX="326.0" layoutY="236.0" />
-                  <TextField fx:id="student1" layoutX="326.0" layoutY="147.0" />
-                  <Button fx:id="btnStudent" layoutX="375.0" layoutY="328.0" mnemonicParsing="false" onAction="#enterStudents" text="Finish" />
-               </children>
-            </Pane>
+            <Button id="button" fx:id="btnFit" layoutY="72.0" mnemonicParsing="false" onAction="#switchPanel" prefHeight="45.0" prefWidth="190.0" styleClass="menuButton" stylesheets="@fxml1.css" text="Fitness" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="26.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="button" fx:id="btnTech" layoutY="136.0" mnemonicParsing="false" onAction="#switchPanel" prefHeight="45.0" prefWidth="190.0" styleClass="menuButton" stylesheets="@fxml1.css" text="Technical" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="26.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="button" fx:id="btnTac" layoutY="197.0" mnemonicParsing="false" onAction="#switchPanel" prefHeight="45.0" prefWidth="190.0" styleClass="menuButton" stylesheets="@fxml1.css" text="Tactical" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="26.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="button" fx:id="btnMot" layoutY="258.0" mnemonicParsing="false" onAction="#switchPanel" prefHeight="45.0" prefWidth="190.0" styleClass="menuButton" stylesheets="@fxml1.css" text="Motivation" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="26.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </AnchorPane>
    </children>
