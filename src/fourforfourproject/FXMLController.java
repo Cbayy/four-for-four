@@ -289,22 +289,6 @@ public class FXMLController implements Initializable {
                 handleName2(side, mmbName);
         }
         System.out.println("end of fName: " + RecordLists.getInstance().BeepTests.toString()); 
-        /*
-        if (StudentList.getInstance().students.get(0).getName().equalsIgnoreCase(side)) {
-             Student temp = StudentList.getInstance().returnStudent(0);
-             tempRec.setStudent(temp);
-             mmbName.setText(side);
-        } else if (StudentList.getInstance().students.get(1).getName().equalsIgnoreCase(side)) {
-            tempRec.setStudent(StudentList.getInstance().students.get(1));
-            mmbName.setText(side);
-        } else if (StudentList.getInstance().students.get(2).getName().equalsIgnoreCase(side)) {
-            tempRec.setStudent(StudentList.getInstance().students.get(2));
-            mmbName.setText(side);
-        } else if (StudentList.getInstance().students.get(3).getName().equalsIgnoreCase(side)) {
-            tempRec.setStudent(StudentList.getInstance().students.get(3));
-            mmbName.setText(side);
-        } 
-        */
     }
   
     @FXML
@@ -670,29 +654,50 @@ public class FXMLController implements Initializable {
         
         Record tempoRec = new Record();
         
-        if("".equals(ftfScore.getText()) || /*tempRec.getStudent() == null*/ fmbName.getText() == null || fmbType.getText() == null){
-            ConfirmBox.display("Invalid Entry", "Record parameters invalid");
-        }else{
-           tempoRec.setStudent(detStu(fmbName.getText()));
-           tempoRec.setScore(Integer.parseInt(ftfScore.getText()));
-            switch(tempRec.getType()){
-                case "BeepTest":
-                    System.out.println("Added bt");
-                    RecordLists.getInstance().BeepTests.add(tempoRec);
-                break;
-                case "AgilityTest":
-                    System.out.println("Added at");
-                    RecordLists.getInstance().AgilityTests.add(tempRec);
-                break; 
-                case "JumpTest":
-                    System.out.println("Added jt");
-                    RecordLists.getInstance().JumpTests.add(tempRec);
-                break;
-                case "SprintTest":
-                    System.out.println("Added st");
-                    RecordLists.getInstance().SprintTests.add(tempRec);
-                break;
+        switch(selected){
+            case 1:
+            if("".equals(ftfScore.getText()) || fmbName.getText() == null || fmbType.getText() == null){
+                ConfirmBox.display("Invalid Entry", "Record parameters invalid");
+            }else{
+                tempoRec.setStudent(detStu(fmbName.getText()));
+                tempoRec.setScore(Integer.parseInt(ftfScore.getText()));
+                 switch(tempRec.getType()){
+                     case "BeepTest":
+                         System.out.println("Added bt");
+                         RecordLists.getInstance().BeepTests.add(tempoRec);
+                     break;
+                     case "AgilityTest":
+                         System.out.println("Added at");
+                         RecordLists.getInstance().AgilityTests.add(tempoRec);
+                     break; 
+                     case "JumpTest":
+                         System.out.println("Added jt");
+                         RecordLists.getInstance().JumpTests.add(tempoRec);
+                     break;
+                     case "SprintTest":
+                         System.out.println("Added st");
+                         RecordLists.getInstance().SprintTests.add(tempoRec);
+                     break;
+                 }
             }
+            case 2:
+                if("".equals(tetfScore.getText()) || tembName.getText() == null || tembType.getText() == null){
+                    ConfirmBox.display("Invalid Entry", "Record parameters invalid");
+                }else{
+                    
+                }
+            break;
+            case 3:
+                
+            break;
+            case 4:
+            
+                
+                
+            break;
+            
+           
+        
             //fReset();
 
         }
