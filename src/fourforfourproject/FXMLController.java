@@ -653,38 +653,60 @@ public class FXMLController implements Initializable {
         System.out.println("Start of fAdd: " + RecordLists.getInstance().BeepTests.toString()); 
         
         Record tempoRec = new Record();
-        
+        System.out.println("SELECTED: " + selected);
+        System.out.println("SCORE:  " + ftfScore.getText() + ", NAME: " + fmbName.getText() + ", TYPE: " + fmbType.getText());
         switch(selected){
             case 1:
-            if("".equals(ftfScore.getText()) || fmbName.getText() == null || fmbType.getText() == null){
-                ConfirmBox.display("Invalid Entry", "Record parameters invalid");
-            }else{
-                tempoRec.setStudent(detStu(fmbName.getText()));
-                tempoRec.setScore(Integer.parseInt(ftfScore.getText()));
-                 switch(tempRec.getType()){
-                     case "BeepTest":
-                         System.out.println("Added bt");
-                         RecordLists.getInstance().BeepTests.add(tempoRec);
-                     break;
-                     case "AgilityTest":
-                         System.out.println("Added at");
-                         RecordLists.getInstance().AgilityTests.add(tempoRec);
-                     break; 
-                     case "JumpTest":
-                         System.out.println("Added jt");
-                         RecordLists.getInstance().JumpTests.add(tempoRec);
-                     break;
-                     case "SprintTest":
-                         System.out.println("Added st");
-                         RecordLists.getInstance().SprintTests.add(tempoRec);
-                     break;
-                 }
-            }
+                if("".equals(ftfScore.getText()) || fmbName.getText() == null || fmbType.getText() == null){
+                    ConfirmBox.display("Invalid Entry", "Record parameters invalid YYE");
+                    }else{
+                    tempoRec.setStudent(detStu(fmbName.getText()));
+                    tempoRec.setScore(Integer.parseInt(ftfScore.getText()));
+                    switch(fmbType.getText()){
+                         case "BeepTest":
+                             tempoRec.setType(fmbType.getText());
+                             System.out.println("Added bt");
+                             RecordLists.getInstance().BeepTests.add(tempoRec);
+                         break;
+                         case "AgilityTest":
+                             System.out.println("Added at");
+                             RecordLists.getInstance().AgilityTests.add(tempoRec);
+                         break; 
+                         case "JumpTest":
+                             System.out.println("Added jt");
+                             RecordLists.getInstance().JumpTests.add(tempoRec);
+                         break;
+                         case "SprintTest":
+                             System.out.println("Added st");
+                             RecordLists.getInstance().SprintTests.add(tempoRec);
+                         break;
+                    }
+                }
+            break;
             case 2:
                 if("".equals(tetfScore.getText()) || tembName.getText() == null || tembType.getText() == null){
-                    ConfirmBox.display("Invalid Entry", "Record parameters invalid");
+                    ConfirmBox.display("Invalid Entry", "Record parameters invalid NN");
                 }else{
-                    
+                    tempoRec.setStudent(detStu(tembName.getText()));
+                    tempoRec.setScore(Integer.parseInt(tetfScore.getText()));
+                    switch(tembType.getText()){
+                        case "Free Throws":
+                            System.out.println("Added Free throw");
+                            RecordLists.getInstance().FreeThrows.add(tempoRec);
+                        break;
+                        case "Layups":
+                            System.out.println("Added layup");
+                            RecordLists.getInstance().Layups.add(tempoRec);
+                        break;
+                        case "Three-pointers":
+                            System.out.println("added 3p");
+                            RecordLists.getInstance().ThreePointers.add(tempoRec);
+                        break;
+                        case "Passing":
+                            System.out.println("Added passing");
+                            RecordLists.getInstance().Passing.add(tempoRec);
+                        break;
+                    }
                 }
             break;
             case 3:
