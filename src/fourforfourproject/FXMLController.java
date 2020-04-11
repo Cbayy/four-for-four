@@ -648,6 +648,35 @@ public class FXMLController implements Initializable {
         return null;
     }
     
+    /*
+        @FXML
+    public void mAdd(ActionEvent event){
+         System.out.println("Start of mAdd: " + RecordLists.getInstance().PreS.toString());
+        if("".equals(mtfScore.getText()) || tempRec.getStudent() == null || tempRec.getType() == null){
+            ConfirmBox.display("Invalid Entry", "Record parameters invalid");
+        }else{
+           tempRec.setScore(Integer.parseInt(mtfScore.getText()));
+            switch(tempRec.getType()){
+                case "Pre-session":
+                    RecordLists.getInstance().PreS.add(tempRec);
+                break;
+                case "During Session":
+                    RecordLists.getInstance().DS.add(tempRec);
+                break; 
+                case "Post-session":
+                    RecordLists.getInstance().PostS.add(tempRec);
+                break;
+                case "Long Term":
+                    RecordLists.getInstance().LT.add(tempRec);
+                break;
+            }
+            //fReset();
+
+        }
+    }
+    */
+    
+    
     @FXML
     public void fAdd(ActionEvent event){
         System.out.println("Start of fAdd: " + RecordLists.getInstance().BeepTests.toString()); 
@@ -710,10 +739,56 @@ public class FXMLController implements Initializable {
                 }
             break;
             case 3:
-                
+                if("".equals(tatfScore.getText()) || tambName.getText() == null || tambType.getText() == null){
+                    ConfirmBox.display("Invalid Entry", "Record parameters invalid NN");
+                }else{
+                    tempoRec.setStudent(detStu(tambName.getText()));
+                    tempoRec.setScore(Integer.parseInt(tatfScore.getText()));
+                    switch(tambType.getText()){
+                        case "Defense: 1v1":
+                            System.out.println("Added d1v1");
+                            RecordLists.getInstance().D1v1.add(tempoRec);
+                        break;
+                        case "Defense: Positioning":
+                            System.out.println("Added dp");
+                            RecordLists.getInstance().Dpos.add(tempoRec);
+                        break;
+                        case "Attack: 1v1":
+                            System.out.println("added a1v1");
+                            RecordLists.getInstance().A1v1.add(tempoRec);
+                        break;
+                        case "Attack: Positioning":
+                            System.out.println("Added ap");
+                            RecordLists.getInstance().Apos.add(tempoRec);
+                        break;
+                    }
+                }
             break;
             case 4:
-            
+                if("".equals(mtfScore.getText()) || mmbName.getText() == null || mmbType.getText() == null){
+                    ConfirmBox.display("Invalid Entry", "Record parameters invalid NN");
+                }else{
+                    tempoRec.setStudent(detStu(mmbName.getText()));
+                    tempoRec.setScore(Integer.parseInt(mtfScore.getText()));
+                    switch(mmbType.getText()){
+                        case "Pre-session":
+                            System.out.println("Added pre");
+                            RecordLists.getInstance().PreS.add(tempoRec);
+                        break;
+                        case "During Session":
+                            System.out.println("Added ds");
+                            RecordLists.getInstance().DS.add(tempoRec);
+                        break;
+                        case "Post-session":
+                            System.out.println("Added post");
+                            RecordLists.getInstance().PostS.add(tempoRec);
+                        break;
+                        case "Long Term":
+                            System.out.println("Added lt");
+                            RecordLists.getInstance().LT.add(tempoRec);
+                        break;
+                    }
+                }
                 
                 
             break;
