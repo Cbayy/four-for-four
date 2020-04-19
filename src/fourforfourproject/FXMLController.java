@@ -272,11 +272,11 @@ public class FXMLController implements Initializable {
     
     @FXML
     public void handleName(ActionEvent event) {
-        System.out.println("Start of handelName: " + RecordLists.getInstance().BeepTests.toString()); 
+        //System.out.println("Start of handelName: " + RecordLists.getInstance().BeepTests.toString()); 
         MenuItem mItem = (MenuItem) event.getSource();
         String side = mItem.getText();
         //handleName2(side, mmbName);
-        System.out.println("SEL: " + selected);
+        //System.out.println("SEL: " + selected);
         
         switch(selected){
             case 1: 
@@ -288,7 +288,7 @@ public class FXMLController implements Initializable {
             case 4:
                 handleName2(side, mmbName);
         }
-        System.out.println("end of fName: " + RecordLists.getInstance().BeepTests.toString()); 
+        //System.out.println("end of fName: " + RecordLists.getInstance().BeepTests.toString()); 
     }
   
     @FXML
@@ -678,7 +678,7 @@ public class FXMLController implements Initializable {
     
     
     @FXML
-    public void fAdd(ActionEvent event){
+    public void add(ActionEvent event){
         System.out.println("Start of fAdd: " + RecordLists.getInstance().BeepTests.toString()); 
         
         Record tempoRec = new Record();
@@ -691,21 +691,22 @@ public class FXMLController implements Initializable {
                     }else{
                     tempoRec.setStudent(detStu(fmbName.getText()));
                     tempoRec.setScore(Integer.parseInt(ftfScore.getText()));
+                    System.out.println("fmbType: " + fmbType.getText());
                     switch(fmbType.getText()){
-                         case "BeepTest":
+                         case "Beep Test":
                              tempoRec.setType(fmbType.getText());
                              System.out.println("Added bt");
                              RecordLists.getInstance().BeepTests.add(tempoRec);
                          break;
-                         case "AgilityTest":
+                         case "Agility Test":
                              System.out.println("Added at");
                              RecordLists.getInstance().AgilityTests.add(tempoRec);
                          break; 
-                         case "JumpTest":
+                         case "Jump Test":
                              System.out.println("Added jt");
                              RecordLists.getInstance().JumpTests.add(tempoRec);
                          break;
-                         case "SprintTest":
+                         case "Sprint Test":
                              System.out.println("Added st");
                              RecordLists.getInstance().SprintTests.add(tempoRec);
                          break;

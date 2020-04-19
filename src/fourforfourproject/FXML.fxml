@@ -71,7 +71,7 @@
                         <MenuItem fx:id="tamiType4" mnemonicParsing="false" onAction="#handletaType" text="Attack: Positioning" />
                      </items>
                   </MenuButton>
-                  <Label layoutX="12.0" layoutY="39.0" prefHeight="36.0" prefWidth="123.0" text="Add Score" textFill="WHITE">
+                  <Label layoutX="12.0" layoutY="39.0" onDragDetected="#add" prefHeight="36.0" prefWidth="123.0" text="Add Score" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -125,7 +125,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Button fx:id="tebAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#teAdd" style="-fx-background-color: #FFFFFF;" text="Add" />
+                  <Button fx:id="tebAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #FFFFFF;" text="Add" />
                   <ListView fx:id="teListView" layoutX="326.0" layoutY="85.0" prefHeight="503.0" prefWidth="266.0" />
                   <Label layoutX="14.0" layoutY="155.0" prefHeight="26.0" prefWidth="123.0" text="Score (1 - 10):" textFill="WHITE">
                      <font>
@@ -181,7 +181,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Button fx:id="fbtnAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#fAdd" style="-fx-background-color: #FFFFFF;" text="Add" />
+                  <Button fx:id="fbtnAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #FFFFFF;" text="Add" />
                   <ListView fx:id="fListView" layoutX="326.0" layoutY="85.0" prefHeight="491.0" prefWidth="266.0" />
                   <LineChart fx:id="LineChart" layoutX="1.0" layoutY="266.0" prefHeight="334.0" prefWidth="325.0">
                     <xAxis>
@@ -212,7 +212,7 @@
                      </font>
                   </MenuButton>
                   <TextField fx:id="mtfScore" layoutX="14.0" layoutY="185.0" />
-                  <MenuButton fx:id="mmbName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
+                  <MenuButton fx:id="mmbName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
                      <items>
                         <MenuItem fx:id="mmiName1" mnemonicParsing="false" onAction="#handleName" text="Student 1" />
                         <MenuItem fx:id="mmiName2" mnemonicParsing="false" onAction="#handleName" text="Student 2" />
@@ -238,7 +238,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Button fx:id="mbtnAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#mAdd" style="-fx-background-color: #FFFFFF;" text="Add" />
+                  <Button fx:id="mbtnAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #FFFFFF;" text="Add" />
                   <ListView fx:id="mListView" layoutX="326.0" layoutY="85.0" prefHeight="491.0" prefWidth="266.0" />
                </children></Pane>
          </children>
