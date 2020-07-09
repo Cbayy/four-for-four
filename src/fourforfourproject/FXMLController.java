@@ -290,7 +290,7 @@ public class FXMLController implements Initializable {
         }
         //System.out.println("end of fName: " + RecordLists.getInstance().BeepTests.toString()); 
     }
-  
+    @Deprecated
     @FXML
     public void handlemType(ActionEvent event) {
         MenuItem mItem = (MenuItem) event.getSource();
@@ -390,7 +390,7 @@ public class FXMLController implements Initializable {
         }        
     }
     
-      
+    @Deprecated 
     @FXML
     public void handletaType(ActionEvent event) {
         MenuItem mItem = (MenuItem) event.getSource();
@@ -442,7 +442,7 @@ public class FXMLController implements Initializable {
 
         }
     }
-
+    @Deprecated
     @FXML
     public void taList(ActionEvent event){
         MenuItem mItem = (MenuItem) event.getSource();
@@ -495,7 +495,7 @@ public class FXMLController implements Initializable {
         }        
     }
      */
-  
+    @Deprecated
     @FXML
     public void handleteType(ActionEvent event) {
         MenuItem mItem = (MenuItem) event.getSource();
@@ -520,6 +520,7 @@ public class FXMLController implements Initializable {
         }        
     }
     
+    @Deprecated
     @FXML
     public void teAdd(ActionEvent event){
          
@@ -555,6 +556,7 @@ public class FXMLController implements Initializable {
         }
     }
 
+    @Deprecated
     @FXML
     public void teList(ActionEvent event){
         MenuItem mItem = (MenuItem) event.getSource();
@@ -608,6 +610,49 @@ public class FXMLController implements Initializable {
         }        
     }
     */
+    @Deprecated
+    @FXML
+    public void fList(ActionEvent event){
+        //System.out.println("Start of fList: " + RecordLists.getInstance().BeepTests.toString()); 
+        MenuItem mItem = (MenuItem) event.getSource();
+        String side = mItem.getText();
+        System.out.println("TEXT: " + side);
+        fListView.getItems().clear();
+        if ("Beep Test".equalsIgnoreCase(side)) {
+                       
+            for(int i = 0; i < RecordLists.getInstance().BeepTests.size(); i++){
+                fListView.getItems().add(RecordLists.getInstance().BeepTests.get(i));
+                
+            }
+
+           
+            fmbList.setText("Beep Test");
+            
+            
+        } else if("Agility Test".equalsIgnoreCase(side)){
+            for(int i = 0; i < RecordLists.getInstance().AgilityTests.size(); i++){
+                fListView.getItems().add(RecordLists.getInstance().AgilityTests.get(i));
+            }
+            fmbList.setText("Agility Test");
+        } else if("20m Sprint".equalsIgnoreCase(side)){
+            for(int i = 0; i < RecordLists.getInstance().SprintTests.size(); i++){
+                fListView.getItems().add(RecordLists.getInstance().SprintTests.get(i));
+            }
+            fmbList.setText("20m Sprint");
+            
+        } else if("Vertical Jump".equalsIgnoreCase(side)){
+            
+            for(int i = 0; i < RecordLists.getInstance().JumpTests.size(); i++){
+                fListView.getItems().add(RecordLists.getInstance().JumpTests.get(i));
+            }
+            fmbList.setText("Vertical Jump");
+        }
+        
+    }
+    
+    
+    
+    @Deprecated
     @FXML
     public void handlefType(ActionEvent event) {
         System.out.println("Start of fType: " + RecordLists.getInstance().BeepTests.toString()); 
@@ -678,12 +723,94 @@ public class FXMLController implements Initializable {
     
     
     @FXML
+    public void type(ActionEvent event){
+        MenuItem mItem = (MenuItem) event.getSource();
+        String side = mItem.getText();
+        switch(selected){
+            case 1:
+                System.out.println("Start of fType: " + RecordLists.getInstance().BeepTests.toString()); 
+                //MenuItem mItem = (MenuItem) event.getSource();
+                //String side = mItem.getText();    
+                if ("Beep Test".equalsIgnoreCase(side)) {
+                    tempRec.setType("BeepTest");
+                    System.out.println("Beep test added");
+                    fmbType.setText(side);
+                     //System.out.println(tempRec.getName().getName());
+                } else if ("Agility Test".equalsIgnoreCase(side)) {
+                    tempRec.setType("AgilityTest");
+                    System.out.println("Agility Test added");
+                    fmbType.setText(side);
+                } else if ("Vertical Jump".equalsIgnoreCase(side)) {
+                    tempRec.setType("JumpTest");
+                    System.out.println("Vertical Jump added");
+                    fmbType.setText(side);
+
+                } else if ("20m Sprint".equalsIgnoreCase(side)) {
+                    tempRec.setType("SprintTest");
+                    System.out.println("Sprint added");
+                    fmbType.setText(side);
+                }    
+            break;
+            case 2:   
+                if ("Free throws".equalsIgnoreCase(side)) {
+                    tempRec.setType("FreeThrow");
+                    System.out.println("3throw added");
+                    tembType.setText(side);
+                } else if ("Layups".equalsIgnoreCase(side)) {
+                    tempRec.setType("Layup");
+                    System.out.println("layup added");
+                    tembType.setText(side);
+                } else if ("Three-pointers".equalsIgnoreCase(side)) {
+                    tempRec.setType("ThreePointer");
+                    System.out.println("3pointer added");
+                    tembType.setText(side);
+                } else if ("Passing".equalsIgnoreCase(side)) {
+                    tempRec.setType("Passing");
+                    System.out.println("pass added");
+                    tembType.setText(side);
+                }   
+            break;
+            case 3:
+                if ("Defensive: 1v1".equalsIgnoreCase(side)) {
+                    tempRec.setType("D1v1");
+                    tambType.setText(side);
+                } else if ("Defensive: Positioning".equalsIgnoreCase(side)) {
+                    tempRec.setType("Dpos");
+                    tambType.setText(side);
+                } else if ("Attack: 1v1".equalsIgnoreCase(side)) {
+                    tempRec.setType("A1v1");
+                    tambType.setText(side);
+                } else if ("Attack: Positioning".equalsIgnoreCase(side)) {
+                    tempRec.setType("Apos");
+                    tambType.setText(side);
+                }     
+            break;
+            case 4:
+                if ("Pre-session".equalsIgnoreCase(side)) {
+                    tempRec.setType("Pre-session");
+                    mmbType.setText(side);
+                } else if ("During Session".equalsIgnoreCase(side)) {
+                    tempRec.setType("During Session");
+                    mmbType.setText(side);
+                } else if ("Post-session".equalsIgnoreCase(side)) {
+                    tempRec.setType("Post-session");
+                    mmbType.setText(side);
+                } else if ("Long Term".equalsIgnoreCase(side)) {
+                    tempRec.setType("Long Term");
+                    mmbType.setText(side);
+                }         
+        }
+    }
+    
+    
+    //Adds record to the list of records
+    @FXML
     public void add(ActionEvent event){
         System.out.println("Start of fAdd: " + RecordLists.getInstance().BeepTests.toString()); 
         
         Record tempoRec = new Record();
         System.out.println("SELECTED: " + selected);
-        System.out.println("SCORE:  " + ftfScore.getText() + ", NAME: " + fmbName.getText() + ", TYPE: " + fmbType.getText());
+        //System.out.println("SCORE:  " + ftfScore.getText() + ", NAME: " + fmbName.getText() + ", TYPE: " + fmbType.getText());
         switch(selected){
             case 1:
                 if("".equals(ftfScore.getText()) || fmbName.getText() == null || fmbType.getText() == null){
@@ -702,11 +829,11 @@ public class FXMLController implements Initializable {
                              System.out.println("Added at");
                              RecordLists.getInstance().AgilityTests.add(tempoRec);
                          break; 
-                         case "Jump Test":
+                         case "Vertical Jump":
                              System.out.println("Added jt");
                              RecordLists.getInstance().JumpTests.add(tempoRec);
                          break;
-                         case "Sprint Test":
+                         case "20m Sprint":
                              System.out.println("Added st");
                              RecordLists.getInstance().SprintTests.add(tempoRec);
                          break;
@@ -801,47 +928,121 @@ public class FXMLController implements Initializable {
         }
     }
     
+    public void list(ActionEvent event){
+        MenuItem mItem = (MenuItem) event.getSource();
+        String side = mItem.getText();
+        switch(selected){
+            case 1:
+                System.out.println("TEXT: " + side);
+                fListView.getItems().clear();
+                if ("Beep Test".equalsIgnoreCase(side)) {
+
+                    for(int i = 0; i < RecordLists.getInstance().BeepTests.size(); i++){
+                        fListView.getItems().add(RecordLists.getInstance().BeepTests.get(i));
+                    }
+                    fmbList.setText("Beep Test");
+                } else if("Agility Test".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().AgilityTests.size(); i++){
+                        fListView.getItems().add(RecordLists.getInstance().AgilityTests.get(i));
+                    }
+                    fmbList.setText("Agility Test");
+                } else if("20m Sprint".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().SprintTests.size(); i++){
+                        fListView.getItems().add(RecordLists.getInstance().SprintTests.get(i));
+                    }
+                    fmbList.setText("20m Sprint");
+
+                } else if("Vertical Jump".equalsIgnoreCase(side)){
+
+                    for(int i = 0; i < RecordLists.getInstance().JumpTests.size(); i++){
+                        fListView.getItems().add(RecordLists.getInstance().JumpTests.get(i));
+                    }
+                    fmbList.setText("Vertical Jump");
+                }
+            break;
+            case 2:
+                teListView.getItems().clear();
+                if ("Free Throws".equalsIgnoreCase(side)) {
+
+                    for(int i = 0; i < RecordLists.getInstance().FreeThrows.size(); i++){
+                        teListView.getItems().add(RecordLists.getInstance().FreeThrows.get(i));
+                    }
+                    tembList.setText("Free Throws");
+                } else if("Layups".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().Layups.size(); i++){
+                        teListView.getItems().add(RecordLists.getInstance().Layups.get(i));
+                    }
+                    tembList.setText("Layups");
+                } else if("Three-pointers".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().ThreePointers.size(); i++){
+                        teListView.getItems().add(RecordLists.getInstance().ThreePointers.get(i));
+                    }
+                    fmbList.setText("Three-pointers");
+                } else if("Passing".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().Passing.size(); i++){
+                        teListView.getItems().add(RecordLists.getInstance().Passing.get(i));
+                    }
+                    tembList.setText("Passing");
+                }
+            break;
+            case 3:
+                taListView.getItems().clear();
+                if ("Defense: 1v1".equalsIgnoreCase(side)) {
+                    for(int i = 0; i < RecordLists.getInstance().D1v1.size(); i++){
+                        taListView.getItems().add(RecordLists.getInstance().D1v1.get(i));
+                    }
+                    tambList.setText("Defense: 1v1");
+                } else if("Defense: Positioning".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().Dpos.size(); i++){
+                        taListView.getItems().add(RecordLists.getInstance().Dpos.get(i));
+                    }
+                    tambList.setText("Defense: Positioning");
+                } else if("Attack: 1v1".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().A1v1.size(); i++){
+                        taListView.getItems().add(RecordLists.getInstance().A1v1.get(i));
+                    }
+                    tambList.setText("Attack: 1v1");
+                } else if("Attack: Positioning".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().Apos.size(); i++){
+                        taListView.getItems().add(RecordLists.getInstance().Apos.get(i));
+                    }
+                    tambList.setText("Attack: Positioning");
+                }
+            break;
+            case 4:
+                System.out.println(RecordLists.getInstance().PreS.toString());
+                mListView.getItems().clear();
+                if ("Pre-session".equalsIgnoreCase(side)) {
+                    for(int i = 0; i < RecordLists.getInstance().PreS.size(); i++){
+                        mListView.getItems().add(RecordLists.getInstance().PreS.get(i));
+                    }
+                    mmbList.setText("Pre-session");
+                } else if("During Session".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().DS.size(); i++){
+                        mListView.getItems().add(RecordLists.getInstance().DS.get(i));
+                    }
+                    mmbList.setText("During Session");
+                } else if("Post-session".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().PostS.size(); i++){
+                        mListView.getItems().add(RecordLists.getInstance().PostS.get(i));
+                    }
+                    mmbList.setText("Post-session");
+                } else if("Long Term".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().LT.size(); i++){
+                        mListView.getItems().add(RecordLists.getInstance().LT.get(i));
+                    }
+                    mmbList.setText("Long term");
+        }    
+            break;         
+        }
+    }
+    
+    
     public void fReset(){
         tempRec.setScore(-1); tempRec.setStudent(null); tempRec.setType(null);
     }
     
-    @FXML
-    public void fList(ActionEvent event){
-        //System.out.println("Start of fList: " + RecordLists.getInstance().BeepTests.toString()); 
-        MenuItem mItem = (MenuItem) event.getSource();
-        String side = mItem.getText();
-           
-        fListView.getItems().clear();
-        if ("Beep Test".equalsIgnoreCase(side)) {
-                       
-            for(int i = 0; i < RecordLists.getInstance().BeepTests.size(); i++){
-                fListView.getItems().add(RecordLists.getInstance().BeepTests.get(i));
-                
-            }
 
-           
-            fmbList.setText("Beep Test");
-            
-            
-        } else if("Agility Test".equalsIgnoreCase(side)){
-            for(int i = 0; i < RecordLists.getInstance().AgilityTests.size(); i++){
-                fListView.getItems().add(RecordLists.getInstance().AgilityTests.get(i));
-            }
-            fmbList.setText("Agility Test");
-        } else if("20m Sprint".equalsIgnoreCase(side)){
-            for(int i = 0; i < RecordLists.getInstance().SprintTests.size(); i++){
-                fListView.getItems().add(RecordLists.getInstance().SprintTests.get(i));
-            }
-            fmbList.setText("20m Sprint");
-        } else if("Vertical Jump".equalsIgnoreCase(side)){
-            for(int i = 0; i < RecordLists.getInstance().JumpTests.size(); i++){
-                fListView.getItems().add(RecordLists.getInstance().JumpTests.get(i));
-            }
-            fmbList.setText("Vertical Jump");
-        }
-        
-    }
-    
     
     
     

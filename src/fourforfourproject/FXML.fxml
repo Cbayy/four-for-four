@@ -37,105 +37,6 @@
       </AnchorPane>
       <AnchorPane fx:id="paneStats" layoutX="194.0" prefHeight="600.0" prefWidth="607.0" style="-fx-background-color: #FFFF;">
          <children>
-            <Pane fx:id="paneTac" prefHeight="600.0" prefWidth="607.0" style="-fx-background-color: #708B75;">
-               <children>
-                  <Label layoutX="326.0" layoutY="42.0" prefHeight="17.0" prefWidth="87.0" text="Records:" textFill="WHITE">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <MenuButton fx:id="tambList" cache="true" layoutX="453.0" layoutY="39.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="140.0" style="-fx-background-color: #FFFFFF;" styleClass="menuButton" stylesheets="@fxml1.css" text="Test Type">
-                     <items>
-                        <MenuItem fx:id="fmiType111" mnemonicParsing="false" onAction="#taList" text="Defense: 1v1" />
-                        <MenuItem fx:id="tamiList" mnemonicParsing="false" onAction="#taList" text="Defense: Positioning" />
-                        <MenuItem fx:id="fmiType311" mnemonicParsing="false" onAction="#taList" text="Attack: 1v1" />
-                        <MenuItem fx:id="fmiType411" mnemonicParsing="false" onAction="#taList" text="Attack: Positioning" />
-                     </items>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </MenuButton>
-                  <MenuButton fx:id="tambName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
-                     <items>
-                        <MenuItem fx:id="tamiName1" mnemonicParsing="false" onAction="#handletaName" text="Student 1" />
-                        <MenuItem fx:id="tamiName2" mnemonicParsing="false" onAction="#handletaName" text="Student 2" />
-                        <MenuItem fx:id="tamiName3" mnemonicParsing="false" onAction="#handleName" text="Student 3" />
-                        <MenuItem fx:id="tamiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
-                     </items>
-                  </MenuButton>
-                  <MenuButton fx:id="tambType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="Test Type">
-                     <items>
-                        <MenuItem fx:id="tamiType1" mnemonicParsing="false" onAction="#handletaType" text="Defensive: 1v1" />
-                        <MenuItem fx:id="tamiType2" mnemonicParsing="false" onAction="#handletaType" text="Defensive: Positioning" />
-                        <MenuItem fx:id="tamiType3" mnemonicParsing="false" onAction="#handletaType" text="Attack: 1v1" />
-                        <MenuItem fx:id="tamiType4" mnemonicParsing="false" onAction="#handletaType" text="Attack: Positioning" />
-                     </items>
-                  </MenuButton>
-                  <Label layoutX="12.0" layoutY="39.0" onDragDetected="#add" prefHeight="36.0" prefWidth="123.0" text="Add Score" textFill="WHITE">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="tabAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#taAdd" style="-fx-background-color: #FFFFFF;" text="Add" />
-                  <ListView fx:id="taListView" layoutX="326.0" layoutY="85.0" prefHeight="503.0" prefWidth="266.0" />
-                  <Label layoutX="14.0" layoutY="155.0" prefHeight="26.0" prefWidth="123.0" text="Score (1 - 4):" textFill="WHITE">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="tatfScore" layoutX="14.0" layoutY="185.0" />
-                  <Label fx:id="talInvalid" layoutX="172.0" layoutY="189.0" text="Score Invalid" />
-               </children></Pane>
-            <Pane fx:id="paneTech" prefHeight="600.0" prefWidth="607.0" style="-fx-background-color: #A8DADC;">
-               <children>
-                  <Label layoutX="326.0" layoutY="42.0" prefHeight="17.0" prefWidth="87.0" text="Records:" textFill="WHITE">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <MenuButton fx:id="tembList" cache="true" layoutX="453.0" layoutY="39.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="140.0" style="-fx-background-color: #FFFFFF;" styleClass="menuButton" stylesheets="@fxml1.css" text="Test Type">
-                     <items>
-                        <MenuItem fx:id="fmiType11" mnemonicParsing="false" onAction="#teList" text="Free Throws" />
-                        <MenuItem fx:id="fmiType21" mnemonicParsing="false" onAction="#teList" text="Layups" />
-                        <MenuItem fx:id="fmiType31" mnemonicParsing="false" onAction="#teList" text="Three-pointers" />
-                        <MenuItem fx:id="fmiType41" mnemonicParsing="false" onAction="#teList" text="Passing" />
-                     </items>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </MenuButton>
-                  <MenuButton fx:id="tembName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
-                     <items>
-                        <MenuItem fx:id="temiName1" mnemonicParsing="false" onAction="#handleName" text="Student 1" />
-                        <MenuItem fx:id="temiName2" mnemonicParsing="false" onAction="#handleName" text="Student 2" />
-                        <MenuItem fx:id="temiName3" mnemonicParsing="false" onAction="#handleName" text="Student 3" />
-                        <MenuItem fx:id="temiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
-                     </items>
-                  </MenuButton>
-                  <MenuButton fx:id="tembType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#handlefType" style="-fx-background-color: #FFFFFF;" text="Test Type">
-                     <items>
-                        <MenuItem fx:id="temiType1" mnemonicParsing="false" onAction="#handleteType" />
-                        <MenuItem fx:id="temiType2" mnemonicParsing="false" onAction="#handleteType" />
-                        <MenuItem fx:id="temiType3" mnemonicParsing="false" onAction="#handleteType" />
-                        <MenuItem fx:id="temiType4" mnemonicParsing="false" onAction="#handleteType" />
-                     </items>
-                  </MenuButton>
-                  <Label layoutX="12.0" layoutY="39.0" prefHeight="36.0" prefWidth="123.0" text="Add Score" textFill="WHITE">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="tebAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #FFFFFF;" text="Add" />
-                  <ListView fx:id="teListView" layoutX="326.0" layoutY="85.0" prefHeight="503.0" prefWidth="266.0" />
-                  <Label layoutX="14.0" layoutY="155.0" prefHeight="26.0" prefWidth="123.0" text="Score (1 - 10):" textFill="WHITE">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="tetfScore" layoutX="14.0" layoutY="185.0" />
-                  <Label fx:id="telInvalid" layoutX="172.0" layoutY="189.0" text="Score Invalid" />
-               </children>
-            </Pane>
             <Pane fx:id="paneFit" prefHeight="600.0" prefWidth="607.0" style="-fx-background-color: #E63946;">
                <children>
                   <Label layoutX="326.0" layoutY="42.0" prefHeight="17.0" prefWidth="87.0" text="Records:" textFill="WHITE">
@@ -145,10 +46,10 @@
                   </Label>
                   <MenuButton fx:id="fmbList" cache="true" layoutX="453.0" layoutY="39.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="140.0" style="-fx-background-color: #FFFFFF;" styleClass="menuButton" stylesheets="@fxml1.css" text="Test Type">
                     <items>
-                      <MenuItem fx:id="fmiType1" mnemonicParsing="false" onAction="#fList" />
-                      <MenuItem fx:id="fmiType2" mnemonicParsing="false" onAction="#fList" />
-                        <MenuItem fx:id="fmiType3" mnemonicParsing="false" onAction="#fList" />
-                        <MenuItem fx:id="fmiType4" mnemonicParsing="false" onAction="#fList" />
+                      <MenuItem fx:id="fmiType1" mnemonicParsing="false" onAction="#list" />
+                      <MenuItem fx:id="fmiType2" mnemonicParsing="false" onAction="#list" />
+                        <MenuItem fx:id="fmiType3" mnemonicParsing="false" onAction="#list" />
+                        <MenuItem fx:id="fmiType4" mnemonicParsing="false" onAction="#list" />
                     </items>
                      <font>
                         <Font size="16.0" />
@@ -163,12 +64,12 @@
                         <MenuItem fx:id="fmiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
                     </items>
                   </MenuButton>
-                  <MenuButton fx:id="fmbType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#handlefType" style="-fx-background-color: #FFFFFF;" text="Test Type">
+                  <MenuButton fx:id="fmbType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#type" style="-fx-background-color: #FFFFFF;" text="Test Type">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#handlefType" text="Beep Test" />
-                        <MenuItem mnemonicParsing="false" onAction="#handlefType" text="Agility Test" />
-                        <MenuItem mnemonicParsing="false" onAction="#handlefType" text="Vertical Jump" />
-                        <MenuItem mnemonicParsing="false" onAction="#handlefType" text="20m Sprint" />
+                        <MenuItem mnemonicParsing="false" onAction="#type" text="Beep Test" />
+                        <MenuItem mnemonicParsing="false" onAction="#type" text="Agility Test" />
+                        <MenuItem mnemonicParsing="false" onAction="#type" text="Vertical Jump" />
+                        <MenuItem mnemonicParsing="false" onAction="#type" text="20m Sprint" />
                      </items>
                   </MenuButton>
                   <Label layoutX="14.0" layoutY="155.0" prefHeight="17.0" prefWidth="87.0" text="Score:" textFill="WHITE">
@@ -202,10 +103,10 @@
                   </Label>
                   <MenuButton fx:id="mmbList" cache="true" layoutX="453.0" layoutY="39.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="140.0" style="-fx-background-color: #FFFFFF;" styleClass="menuButton" stylesheets="@fxml1.css" text="Test Type">
                      <items>
-                        <MenuItem fx:id="fmiType12" mnemonicParsing="false" onAction="#mList" text="Pre-session" />
-                        <MenuItem fx:id="fmiType22" mnemonicParsing="false" onAction="#mList" text="During Session" />
-                        <MenuItem fx:id="fmiType32" mnemonicParsing="false" onAction="#mList" text="Post-session" />
-                        <MenuItem fx:id="fmiType42" mnemonicParsing="false" onAction="#mList" text="Long term" />
+                        <MenuItem fx:id="fmiType12" mnemonicParsing="false" onAction="#list" text="Pre-session" />
+                        <MenuItem fx:id="fmiType22" mnemonicParsing="false" onAction="#list" text="During Session" />
+                        <MenuItem fx:id="fmiType32" mnemonicParsing="false" onAction="#list" text="Post-session" />
+                        <MenuItem fx:id="fmiType42" mnemonicParsing="false" onAction="#list" text="Long term" />
                      </items>
                      <font>
                         <Font size="16.0" />
@@ -220,12 +121,12 @@
                         <MenuItem fx:id="mmiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
                      </items>
                   </MenuButton>
-                  <MenuButton fx:id="mmbType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#handlemType" style="-fx-background-color: #FFFFFF;" text="Test Type">
+                  <MenuButton fx:id="mmbType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="Test Type">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#handlemType" text="Pre-session" />
-                        <MenuItem mnemonicParsing="false" onAction="#handlemType" text="During Session" />
-                        <MenuItem mnemonicParsing="false" onAction="#handlemType" text="Post-session" />
-                        <MenuItem mnemonicParsing="false" onAction="#handlemType" text="Long Term" />
+                        <MenuItem mnemonicParsing="false" onAction="#type" text="Pre-session" />
+                        <MenuItem mnemonicParsing="false" onAction="#type" text="During Session" />
+                        <MenuItem mnemonicParsing="false" onAction="#type" text="Post-session" />
+                        <MenuItem mnemonicParsing="false" onAction="#type" text="Long Term" />
                      </items>
                   </MenuButton>
                   <Label layoutX="14.0" layoutY="155.0" prefHeight="17.0" prefWidth="87.0" text="Score:" textFill="WHITE">
@@ -240,6 +141,105 @@
                   </Label>
                   <Button fx:id="mbtnAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #FFFFFF;" text="Add" />
                   <ListView fx:id="mListView" layoutX="326.0" layoutY="85.0" prefHeight="491.0" prefWidth="266.0" />
+               </children></Pane>
+            <Pane fx:id="paneTech" prefHeight="600.0" prefWidth="607.0" style="-fx-background-color: #A8DADC;">
+               <children>
+                  <Label layoutX="326.0" layoutY="42.0" prefHeight="17.0" prefWidth="87.0" text="Records:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="tembList" cache="true" layoutX="453.0" layoutY="39.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="140.0" style="-fx-background-color: #FFFFFF;" styleClass="menuButton" stylesheets="@fxml1.css" text="Test Type">
+                     <items>
+                        <MenuItem fx:id="fmiType11" mnemonicParsing="false" onAction="#list" text="Free Throws" />
+                        <MenuItem fx:id="fmiType21" mnemonicParsing="false" onAction="#list" text="Layups" />
+                        <MenuItem fx:id="fmiType31" mnemonicParsing="false" onAction="#list" text="Three-pointers" />
+                        <MenuItem fx:id="fmiType41" mnemonicParsing="false" onAction="#list" text="Passing" />
+                     </items>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </MenuButton>
+                  <MenuButton fx:id="tembName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleName" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
+                     <items>
+                        <MenuItem fx:id="temiName1" mnemonicParsing="false" onAction="#handleName" text="Student 1" />
+                        <MenuItem fx:id="temiName2" mnemonicParsing="false" onAction="#handleName" text="Student 2" />
+                        <MenuItem fx:id="temiName3" mnemonicParsing="false" onAction="#handleName" text="Student 3" />
+                        <MenuItem fx:id="temiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
+                     </items>
+                  </MenuButton>
+                  <MenuButton fx:id="tembType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#type" style="-fx-background-color: #FFFFFF;" text="Test Type">
+                     <items>
+                        <MenuItem fx:id="temiType1" mnemonicParsing="false" onAction="#type" />
+                        <MenuItem fx:id="temiType2" mnemonicParsing="false" onAction="#type" />
+                        <MenuItem fx:id="temiType3" mnemonicParsing="false" onAction="#type" />
+                        <MenuItem fx:id="temiType4" mnemonicParsing="false" onAction="#type" />
+                     </items>
+                  </MenuButton>
+                  <Label layoutX="12.0" layoutY="39.0" prefHeight="36.0" prefWidth="123.0" text="Add Score" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="tebAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #FFFFFF;" text="Add" />
+                  <ListView fx:id="teListView" layoutX="326.0" layoutY="85.0" prefHeight="503.0" prefWidth="266.0" />
+                  <Label layoutX="14.0" layoutY="155.0" prefHeight="26.0" prefWidth="123.0" text="Score (1 - 10):" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tetfScore" layoutX="14.0" layoutY="185.0" />
+                  <Label fx:id="telInvalid" layoutX="172.0" layoutY="189.0" text="Score Invalid" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneTac" prefHeight="600.0" prefWidth="607.0" style="-fx-background-color: #708B75;">
+               <children>
+                  <Label layoutX="326.0" layoutY="42.0" prefHeight="17.0" prefWidth="87.0" text="Records:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="tambList" cache="true" layoutX="453.0" layoutY="39.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="140.0" style="-fx-background-color: #FFFFFF;" styleClass="menuButton" stylesheets="@fxml1.css" text="Test Type">
+                     <items>
+                        <MenuItem fx:id="fmiType111" mnemonicParsing="false" onAction="#list" text="Defense: 1v1" />
+                        <MenuItem fx:id="tamiList" mnemonicParsing="false" onAction="#list" text="Defense: Positioning" />
+                        <MenuItem fx:id="fmiType311" mnemonicParsing="false" onAction="#list" text="Attack: 1v1" />
+                        <MenuItem fx:id="fmiType411" mnemonicParsing="false" onAction="#list" text="Attack: Positioning" />
+                     </items>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </MenuButton>
+                  <MenuButton fx:id="tambName" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" stylesheets="@fxml1.css" text="Name">
+                     <items>
+                        <MenuItem fx:id="tamiName1" mnemonicParsing="false" onAction="#handleName" text="Student 1" />
+                        <MenuItem fx:id="tamiName2" mnemonicParsing="false" onAction="#handleName" text="Student 2" />
+                        <MenuItem fx:id="tamiName3" mnemonicParsing="false" onAction="#handleName" text="Student 3" />
+                        <MenuItem fx:id="tamiName4" mnemonicParsing="false" onAction="#handleName" text="Student 4" />
+                     </items>
+                  </MenuButton>
+                  <MenuButton fx:id="tambType" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" text="Test Type">
+                     <items>
+                        <MenuItem fx:id="tamiType1" mnemonicParsing="false" onAction="#type" text="Defense: 1v1" />
+                        <MenuItem fx:id="tamiType2" mnemonicParsing="false" onAction="#type" text="Defense: Positioning" />
+                        <MenuItem fx:id="tamiType3" mnemonicParsing="false" onAction="#type" text="Attack: 1v1" />
+                        <MenuItem fx:id="tamiType4" mnemonicParsing="false" onAction="#type" text="Attack: Positioning" />
+                     </items>
+                  </MenuButton>
+                  <Label layoutX="12.0" layoutY="39.0" onDragDetected="#add" prefHeight="36.0" prefWidth="123.0" text="Add Score" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="tabAdd" layoutX="125.0" layoutY="224.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #FFFFFF;" text="Add" />
+                  <ListView fx:id="taListView" layoutX="326.0" layoutY="85.0" prefHeight="503.0" prefWidth="266.0" />
+                  <Label layoutX="14.0" layoutY="155.0" prefHeight="26.0" prefWidth="123.0" text="Score (1 - 4):" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tatfScore" layoutX="14.0" layoutY="185.0" />
+                  <Label fx:id="talInvalid" layoutX="172.0" layoutY="189.0" text="Score Invalid" />
                </children></Pane>
          </children>
       </AnchorPane>
