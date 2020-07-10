@@ -21,7 +21,7 @@ public class Record {
     /*
     * Date of the score.
     */
-    int date;
+    String date;
     
     
     /**
@@ -36,7 +36,7 @@ public class Record {
 
   
    
-    public Record(Student s, String rType, int date, int score) {
+    public Record(Student s, String rType, String date, int score) {
         this.s = s;
         this.type = rType;
         this.date = date;
@@ -56,7 +56,7 @@ public class Record {
         this.type = type;
     }
     
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -72,7 +72,7 @@ public class Record {
         return type;
     }
     
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 

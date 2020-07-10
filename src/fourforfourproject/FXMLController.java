@@ -6,7 +6,10 @@
 package fourforfourproject;
 
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.css.PseudoClass;
@@ -18,6 +21,8 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -26,6 +31,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -187,11 +193,11 @@ public class FXMLController implements Initializable {
         telInvalid.setVisible(false);
         talInvalid.setVisible(false);
         
-        XYChart.Series series = new XYChart.Series();
-        series.getData().add(new XYChart.Data<>("0", RecordLists.getInstance().BeepTests.get(0).getScore()));
-        series.getData().add(new XYChart.Data<>("1", RecordLists.getInstance().BeepTests.get(1).getScore()));
+        //XYChart.Series series = new XYChart.Series();
+        //series.getData().add(new XYChart.Data<>("0", RecordLists.getInstance().BeepTests.get(0).getScore()));
+        //series.getData().add(new XYChart.Data<>("1", RecordLists.getInstance().BeepTests.get(1).getScore()));
         //series.getData().add(new XYChart.Data<>("1",10));
-        LineChart.getData().addAll(series);
+        //LineChart.getData().addAll(series);
         
         System.out.println(com.sun.javafx.runtime.VersionInfo.getRuntimeVersion());
     }    
@@ -310,8 +316,7 @@ public class FXMLController implements Initializable {
         }        
     }
     
-    
-    
+    @Deprecated
     @FXML
     public void mAdd(ActionEvent event){
          System.out.println("Start of mAdd: " + RecordLists.getInstance().PreS.toString());
@@ -338,6 +343,7 @@ public class FXMLController implements Initializable {
         }
     }
     
+    @Deprecated
     @FXML
     public void mList(ActionEvent event){
         MenuItem mItem = (MenuItem) event.getSource();
@@ -367,6 +373,7 @@ public class FXMLController implements Initializable {
         }
     }
     
+    @Deprecated
     @FXML
     public void handletaName(ActionEvent event) {
         MenuItem mItem = (MenuItem) event.getSource();
@@ -410,7 +417,7 @@ public class FXMLController implements Initializable {
         }        
     }
   
-    
+    @Deprecated
     @FXML
     public void taAdd(ActionEvent event){
          
@@ -426,16 +433,16 @@ public class FXMLController implements Initializable {
             switch(tempRec.getType()){
                 case "D1v1":
                     System.out.println("Added d1v1");
-                    RecordLists.getInstance().D1v1.add(tempRec);
+                    RecordLists.getInstance().decisionMaking.add(tempRec);
                 break;
                 case "Dpos":
-                    RecordLists.getInstance().Dpos.add(tempRec);
+                    RecordLists.getInstance().skillExecution.add(tempRec);
                 break; 
                 case "A1v1":
-                    RecordLists.getInstance().A1v1.add(tempRec);
+                    RecordLists.getInstance().support.add(tempRec);
                 break;
                 case "Apos":
-                    RecordLists.getInstance().Apos.add(tempRec);
+                    RecordLists.getInstance().preventScoring.add(tempRec);
                 break;
             }
             //fReset();
@@ -450,23 +457,23 @@ public class FXMLController implements Initializable {
        
         taListView.getItems().clear();
         if ("Defense: 1v1".equalsIgnoreCase(side)) {
-            for(int i = 0; i < RecordLists.getInstance().D1v1.size(); i++){
-                taListView.getItems().add(RecordLists.getInstance().D1v1.get(i));
+            for(int i = 0; i < RecordLists.getInstance().decisionMaking.size(); i++){
+                taListView.getItems().add(RecordLists.getInstance().decisionMaking.get(i));
             }
             tambList.setText("Defense: 1v1");
         } else if("Defense: Positioning".equalsIgnoreCase(side)){
-            for(int i = 0; i < RecordLists.getInstance().Dpos.size(); i++){
-                taListView.getItems().add(RecordLists.getInstance().Dpos.get(i));
+            for(int i = 0; i < RecordLists.getInstance().skillExecution.size(); i++){
+                taListView.getItems().add(RecordLists.getInstance().skillExecution.get(i));
             }
             tambList.setText("Defense: Positioning");
         } else if("Attack: 1v1".equalsIgnoreCase(side)){
-            for(int i = 0; i < RecordLists.getInstance().A1v1.size(); i++){
-                taListView.getItems().add(RecordLists.getInstance().A1v1.get(i));
+            for(int i = 0; i < RecordLists.getInstance().support.size(); i++){
+                taListView.getItems().add(RecordLists.getInstance().support.get(i));
             }
             tambList.setText("Attack: 1v1");
         } else if("Attack: Positioning".equalsIgnoreCase(side)){
-            for(int i = 0; i < RecordLists.getInstance().Apos.size(); i++){
-                taListView.getItems().add(RecordLists.getInstance().Apos.get(i));
+            for(int i = 0; i < RecordLists.getInstance().preventScoring.size(); i++){
+                taListView.getItems().add(RecordLists.getInstance().preventScoring.get(i));
             }
             tambList.setText("Attack: Positioning");
         }
@@ -771,17 +778,18 @@ public class FXMLController implements Initializable {
                 }   
             break;
             case 3:
-                if ("Defensive: 1v1".equalsIgnoreCase(side)) {
-                    tempRec.setType("D1v1");
+                if ("Decision-Making".equalsIgnoreCase(side)) {
+                    tempRec.setType("decisionMaking");
                     tambType.setText(side);
-                } else if ("Defensive: Positioning".equalsIgnoreCase(side)) {
-                    tempRec.setType("Dpos");
+                    System.out.println("PREDM");
+                } else if ("Skill Execution".equalsIgnoreCase(side)) {
+                    tempRec.setType("skillExecution");
                     tambType.setText(side);
-                } else if ("Attack: 1v1".equalsIgnoreCase(side)) {
-                    tempRec.setType("A1v1");
+                } else if ("Support".equalsIgnoreCase(side)) {
+                    tempRec.setType("support");
                     tambType.setText(side);
-                } else if ("Attack: Positioning".equalsIgnoreCase(side)) {
-                    tempRec.setType("Apos");
+                } else if ("Prevent Scoring".equalsIgnoreCase(side)) {
+                    tempRec.setType("preventScoring");
                     tambType.setText(side);
                 }     
             break;
@@ -809,6 +817,7 @@ public class FXMLController implements Initializable {
         System.out.println("Start of fAdd: " + RecordLists.getInstance().BeepTests.toString()); 
         
         Record tempoRec = new Record();
+        tempoRec.setDate(FourForFourProject.getCurrentDate());
         System.out.println("SELECTED: " + selected);
         //System.out.println("SCORE:  " + ftfScore.getText() + ", NAME: " + fmbName.getText() + ", TYPE: " + fmbType.getText());
         switch(selected){
@@ -869,25 +878,25 @@ public class FXMLController implements Initializable {
             case 3:
                 if("".equals(tatfScore.getText()) || tambName.getText() == null || tambType.getText() == null){
                     ConfirmBox.display("Invalid Entry", "Record parameters invalid NN");
+                } else if(Integer.parseInt(tatfScore.getText()) > 5 || Integer.parseInt(tatfScore.getText()) < 0){
+                    talInvalid.setVisible(true);
                 }else{
+                    talInvalid.setVisible(false);
                     tempoRec.setStudent(detStu(tambName.getText()));
                     tempoRec.setScore(Integer.parseInt(tatfScore.getText()));
                     switch(tambType.getText()){
-                        case "Defense: 1v1":
-                            System.out.println("Added d1v1");
-                            RecordLists.getInstance().D1v1.add(tempoRec);
+                        case "Decision-Making":
+                            RecordLists.getInstance().decisionMaking.add(tempoRec);
+                            System.out.println("ADDED DM");
                         break;
-                        case "Defense: Positioning":
-                            System.out.println("Added dp");
-                            RecordLists.getInstance().Dpos.add(tempoRec);
+                        case "Skill Execution":
+                            RecordLists.getInstance().skillExecution.add(tempoRec);
                         break;
-                        case "Attack: 1v1":
-                            System.out.println("added a1v1");
-                            RecordLists.getInstance().A1v1.add(tempoRec);
+                        case "Support":
+                            RecordLists.getInstance().support.add(tempoRec);
                         break;
-                        case "Attack: Positioning":
-                            System.out.println("Added ap");
-                            RecordLists.getInstance().Apos.add(tempoRec);
+                        case "Prevent Scoring":
+                            RecordLists.getInstance().preventScoring.add(tempoRec);
                         break;
                     }
                 }
@@ -987,26 +996,28 @@ public class FXMLController implements Initializable {
             break;
             case 3:
                 taListView.getItems().clear();
-                if ("Defense: 1v1".equalsIgnoreCase(side)) {
-                    for(int i = 0; i < RecordLists.getInstance().D1v1.size(); i++){
-                        taListView.getItems().add(RecordLists.getInstance().D1v1.get(i));
+                System.out.println("PRE");
+                if ("Decision-Making".equalsIgnoreCase(side)) {
+                    System.out.println("POST");
+                    for(int i = 0; i < RecordLists.getInstance().decisionMaking.size(); i++){
+                        taListView.getItems().add(RecordLists.getInstance().decisionMaking.get(i));
                     }
-                    tambList.setText("Defense: 1v1");
-                } else if("Defense: Positioning".equalsIgnoreCase(side)){
-                    for(int i = 0; i < RecordLists.getInstance().Dpos.size(); i++){
-                        taListView.getItems().add(RecordLists.getInstance().Dpos.get(i));
+                    tambList.setText("Decision-Making");
+                } else if("Skill Execution".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().skillExecution.size(); i++){
+                        taListView.getItems().add(RecordLists.getInstance().skillExecution.get(i));
                     }
-                    tambList.setText("Defense: Positioning");
-                } else if("Attack: 1v1".equalsIgnoreCase(side)){
-                    for(int i = 0; i < RecordLists.getInstance().A1v1.size(); i++){
-                        taListView.getItems().add(RecordLists.getInstance().A1v1.get(i));
+                    tambList.setText("Skill Execution");
+                } else if("Support".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().support.size(); i++){
+                        taListView.getItems().add(RecordLists.getInstance().support.get(i));
                     }
-                    tambList.setText("Attack: 1v1");
-                } else if("Attack: Positioning".equalsIgnoreCase(side)){
-                    for(int i = 0; i < RecordLists.getInstance().Apos.size(); i++){
-                        taListView.getItems().add(RecordLists.getInstance().Apos.get(i));
+                    tambList.setText("Support");
+                } else if("Prevent Scoring".equalsIgnoreCase(side)){
+                    for(int i = 0; i < RecordLists.getInstance().preventScoring.size(); i++){
+                        taListView.getItems().add(RecordLists.getInstance().preventScoring.get(i));
                     }
-                    tambList.setText("Attack: Positioning");
+                    tambList.setText("Prevent Scoring");
                 }
             break;
             case 4:
@@ -1042,8 +1053,107 @@ public class FXMLController implements Initializable {
         tempRec.setScore(-1); tempRec.setStudent(null); tempRec.setType(null);
     }
     
+    @FXML
+    public void generateTotals(ActionEvent event){
+        TextInputDialog dialogInput = new TextInputDialog();
+        dialogInput.setContentText("Enter session date: ");
+        
+        Optional<String> result = dialogInput.showAndWait();
+        if (result.isPresent()){
+            int t0 = 0,t1 = 0,t2 = 0,t3 = 0; 
+            System.out.println("RESULT: " + result.toString());
+            System.out.println("ANS: " + RecordLists.getInstance().decisionMaking.get(0).getDate());
+            
+           for(int i = 0; i < RecordLists.getInstance().decisionMaking.size(); i++){
+               if(RecordLists.getInstance().decisionMaking.get(i).getDate().equals(result.get())){
+                   System.out.println("TW");
+                   System.out.println("THIS: " + RecordLists.getInstance().decisionMaking.get(i).getDate());
+                   if( RecordLists.getInstance().decisionMaking.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(0).getName())){
+                       t0 += RecordLists.getInstance().decisionMaking.get(i).getScore();
+                   }
+                   if( RecordLists.getInstance().decisionMaking.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(1).getName()))
+                        t1 += RecordLists.getInstance().decisionMaking.get(i).getScore();
+                    }
+                    if(RecordLists.getInstance().decisionMaking.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(2).getName())){
+                        t2 += RecordLists.getInstance().decisionMaking.get(i).getScore();
+                    }
+                    if(RecordLists.getInstance().decisionMaking.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(3).getName())){
+                        t3 += RecordLists.getInstance().decisionMaking.get(i).getScore();
 
+                    }
+           }
+           
+           
+           for(int i = 0; i < RecordLists.getInstance().skillExecution.size(); i++){
+                if(RecordLists.getInstance().decisionMaking.get(i).getDate().equals(result.get())){
+                   System.out.println("THIS: " + RecordLists.getInstance().skillExecution.get(i).getDate());
+                   if( RecordLists.getInstance().skillExecution.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(0).getName())){
+                       t0 += RecordLists.getInstance().skillExecution.get(i).getScore();
+                   }
+                   if( RecordLists.getInstance().skillExecution.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(1).getName()))
+                        t1 += RecordLists.getInstance().skillExecution.get(i).getScore();
+                    }
+                    if(RecordLists.getInstance().skillExecution.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(2).getName())){
+                        t2 += RecordLists.getInstance().skillExecution.get(i).getScore();
+                    }
+                    if(RecordLists.getInstance().skillExecution.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(3).getName())){
+                        t3 += RecordLists.getInstance().skillExecution.get(i).getScore();
+
+                    }
+               
+           }
+           
+           
+           for(int i = 0; i < RecordLists.getInstance().support.size(); i++){
+                if(RecordLists.getInstance().support.get(i).getDate().equals(result.get())){
+                   System.out.println("THIS: " + RecordLists.getInstance().support.get(i).getDate());
+                   if( RecordLists.getInstance().support.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(0).getName())){
+                       t0 += RecordLists.getInstance().support.get(i).getScore();
+                   }
+                   if( RecordLists.getInstance().support.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(1).getName()))
+                        t1 += RecordLists.getInstance().support.get(i).getScore();
+                    }
+                    if(RecordLists.getInstance().support.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(2).getName())){
+                        t2 += RecordLists.getInstance().support.get(i).getScore();
+                    }
+                    if(RecordLists.getInstance().support.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(3).getName())){
+                        t3 += RecordLists.getInstance().support.get(i).getScore();
+
+                    }
+               
+           }
+           
+            for(int i = 0; i < RecordLists.getInstance().preventScoring.size(); i++){
+                if(RecordLists.getInstance().preventScoring.get(i).getDate().equals(result.get())){
+                   System.out.println("THIS: " + RecordLists.getInstance().preventScoring.get(i).getDate());
+                   if( RecordLists.getInstance().preventScoring.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(0).getName())){
+                       t0 += RecordLists.getInstance().preventScoring.get(i).getScore();
+                   }
+                   if( RecordLists.getInstance().preventScoring.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(1).getName()))
+                        t1 += RecordLists.getInstance().preventScoring.get(i).getScore();
+                    }
+                    if(RecordLists.getInstance().preventScoring.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(2).getName())){
+                        t2 += RecordLists.getInstance().preventScoring.get(i).getScore();
+                    }
+                    if(RecordLists.getInstance().preventScoring.get(i).getStudent().getName().equals(StudentList.getInstance().students.get(3).getName())){
+                        t3 += RecordLists.getInstance().preventScoring.get(i).getScore();
+
+                    }
+               
+           }
+            System.out.println(t0 + "|" + t1 + "|" + t2 + "|" + t3);
+                
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("");
+            alert.setHeaderText("Below are the total scores");
+            alert.setContentText(StudentList.getInstance().students.get(0).getName() + ": " + t0 + " | " +StudentList.getInstance().students.get(1).getName() + ": " + t1 + " | " + StudentList.getInstance().students.get(2).getName() + ": " + t2 + " | " +StudentList.getInstance().students.get(3).getName() + ": " + t3);
+
+            alert.showAndWait();
+        }
+   
+        
+    }
     
-    
+
     
 }

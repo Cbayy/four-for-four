@@ -8,6 +8,8 @@ package fourforfourproject;
 import static java.awt.SystemColor.window;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -47,8 +49,8 @@ public class FourForFourProject extends Application {
        StudentList.getInstance().students.add(s3);
        StudentList.getInstance().students.add(s4);
        
-       Record r1 = new Record(s2,"BeepTest",12,11);
-       Record r2 = new Record(s3,"BeepTest", 14, 12);
+       Record r1 = new Record(s2,"BeepTest","12-12",11);
+       Record r2 = new Record(s3,"BeepTest","8-7", 12);
        rbt.BeepTests.add(r1);
        rbt.BeepTests.add(r2);  
         launch(args);
@@ -149,6 +151,14 @@ public class FourForFourProject extends Application {
             stage.close();
                    
         }
+    }
+    
+    public static String getCurrentDate(){
+        LocalDateTime myDateObj = LocalDateTime.now();    
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM");
+
+        String formattedDate = myDateObj.format(myFormatObj);
+        return formattedDate;
     }
     
     

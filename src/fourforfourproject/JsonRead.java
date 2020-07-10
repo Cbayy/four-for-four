@@ -34,7 +34,7 @@ public class JsonRead {
                 
                 sc.s.setName(jsonObj.getString("name"));
                 sc.setType(jsonObj.getString("type"));
-                sc.setDate(jsonObj.getInt("date"));
+                sc.setDate(jsonObj.getString("date"));
                 sc.setScore(jsonObj.getInt("score"));
              
                 switch(sc.getType()){

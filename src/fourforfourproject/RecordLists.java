@@ -31,10 +31,11 @@ public class RecordLists {
     ArrayList<Record> ThreePointers;
     ArrayList<Record> Passing;
     
-    ArrayList<Record> D1v1;
-    ArrayList<Record> Dpos;
-    ArrayList<Record> A1v1;
-    ArrayList<Record> Apos;
+    ArrayList<Record> decisionMaking;
+    ArrayList<Record> skillExecution;
+    ArrayList<Record> support;
+    ArrayList<Record> preventScoring;
+    ArrayList<Record> totals;
     
     ArrayList<Record> PreS;
     ArrayList<Record> DS;
@@ -53,10 +54,11 @@ public class RecordLists {
         this.ThreePointers = new ArrayList<>();
         this.Passing = new ArrayList<>();
 
-        this.D1v1 = new ArrayList<>();
-        this.Dpos = new ArrayList<>();
-        this.A1v1 = new ArrayList<>();
-        this.Apos = new ArrayList<>();
+        this.decisionMaking = new ArrayList<>();
+        this.skillExecution = new ArrayList<>();
+        this.support = new ArrayList<>();
+        this.preventScoring = new ArrayList<>();
+        this.totals = new ArrayList<>();
         
         this.PreS = new ArrayList<>();
         this.DS = new ArrayList<>();
